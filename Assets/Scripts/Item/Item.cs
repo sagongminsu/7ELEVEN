@@ -1,5 +1,7 @@
 using System;
-    public enum ItemType
+using UnityEngine;
+
+public enum ItemType
     {
         Food,
         Resource,
@@ -16,4 +18,6 @@ using System;
         public int count;
         public int point;
         public ItemType itemType;
+        public Sprite itemIcon;
+        public GameObject itemObject;
     }

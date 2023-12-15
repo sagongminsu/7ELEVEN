@@ -19,5 +19,4 @@ public enum ItemType
         public int point;
         public ItemType itemType;
         public Sprite itemIcon;
-        public GameObject itemObject;
     }

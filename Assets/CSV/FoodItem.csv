@@ -1,7 +1,7 @@
 Index,Name,Text,Count,Point,ItemType
 201,Raw Meat,It's a raw fish that's running out of blood,0,5,Food
 202,Well-done Meat,It's deliciously well-done meat,0,30,Food
-203,Potato Chips,Half nitrogen half snack,0,10,Food
+203,Snack,Half nitrogen half snack,0,10,Food
 204,Mushrooms,Mushrooms that look fishy,0,3,Food
 205,Stew,stew with mushrooms and meat,0,50,Food
-206,Triangular rolled-rice gimbap,It's triangular gimbap that looks delicious,0,50,Food
+206,Apple,a sweet and sour fresh apple,0,50,Food

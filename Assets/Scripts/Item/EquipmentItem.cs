@@ -1,3 +1,5 @@
+using System;
+
 public enum EquipmentType
 {
     Sword,
@@ -8,8 +10,11 @@ public enum EquipmentType
     Boots,
     Gloves
 }
+
+[Serializable]
 public class EquipmentItem : Item
 {
     public float durability;
     public EquipmentType equipmentType;
+    public bool isEquipment;
 }

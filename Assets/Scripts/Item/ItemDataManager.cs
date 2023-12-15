@@ -11,9 +11,13 @@ public class ItemDataManager : MonoBehaviour
     public List<Item> medicinesList;
     public List<EquipmentItem> equipmentItemItemList;
     public List<Recipe> recipes;
-    
 
-    private void Awake()
+    public static ItemDataManager Instance
+    {
+        get { return instance; }
+    }
+
+    public void Awake()
     {
         if (instance == null)
         {
@@ -24,6 +28,7 @@ public class ItemDataManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
     }
 
     void Start()
@@ -61,6 +66,9 @@ public class ItemDataManager : MonoBehaviour
                             point = int.Parse(values[4]),
                             itemType = (ItemType)Enum.Parse(typeof(ItemType), values[5]),
                             itemIcon = Resources.Load<Sprite>("ItemIcon/Item/" + values[0]),
+                            canStack = true,
+                            maxStackAmount = 99,
+                            dropObject = Resources.Load<GameObject>("ItemPrefabs/" + values[1])
                         };
                         result.Add((T)(object)newData);
                     }
@@ -76,11 +84,14 @@ public class ItemDataManager : MonoBehaviour
                             itemType = (ItemType)Enum.Parse(typeof(ItemType), values[5]),
                             durability = float.Parse(values[6]),
                             equipmentType = (EquipmentType)Enum.Parse(typeof(EquipmentType), values[7]),
-                            itemIcon = Resources.Load<Sprite>("ItemIcon/Equipment/" + values[0])
+                            itemIcon = Resources.Load<Sprite>("ItemIcon/Equipment/" + values[0]),
+                            canStack = false,
+                            maxStackAmount = 1,
+                            dropObject = Resources.Load<GameObject>("EquipmentItemPrefabs/" + values[1])
                         };
                         result.Add((T)(object)newData);
                     }
-                    else if (typeof(T) == typeof(Recipe) && values.Length >= 10)
+                    else if (typeof(T) == typeof(Recipe) && values.Length == 10)
                     {
                         Recipe newData = new Recipe
                         {
@@ -99,14 +110,14 @@ public class ItemDataManager : MonoBehaviour
                     }
                     else
                     {
-                        Debug.LogError($"Error reading CSV file '{path}': Incorrect number of columns or invalid type");
+                        Debug.LogError("CSV 파일의 열의 갯수 혹은 유형이 유효하지 않습니다.");
                     }
                 }
             }
         }
         catch (IOException e)
         {
-            Debug.LogError($"Error reading the CSV file '{path}': {e.Message}");
+            Debug.LogError("파일이 경로에 존재하지 않거나 읽을 수 있는 권한이 없습니다.");
         }
 
         return result;

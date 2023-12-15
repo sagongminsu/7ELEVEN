@@ -12,6 +12,7 @@ public enum ItemType
     [Serializable]
     public class Item
     {
+        [Header("info")]
         public int index;
         public string name;
         public string text;
@@ -19,4 +20,10 @@ public enum ItemType
         public int point;
         public ItemType itemType;
         public Sprite itemIcon;
+        public GameObject dropObject;
+
+        [Header("Stacking")]
+        public bool canStack;
+        public int maxStackAmount;
+
     }

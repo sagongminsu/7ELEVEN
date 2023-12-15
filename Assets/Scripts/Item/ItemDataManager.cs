@@ -60,7 +60,7 @@ public class ItemDataManager : MonoBehaviour
                             count = int.Parse(values[3]),
                             point = int.Parse(values[4]),
                             itemType = (ItemType)Enum.Parse(typeof(ItemType), values[5]),
-                            itemIcon = Resources.Load<Sprite>("ItemIcon/Item/" + values[0])
+                            itemIcon = Resources.Load<Sprite>("ItemIcon/Item/" + values[0]),
                         };
                         result.Add((T)(object)newData);
                     }

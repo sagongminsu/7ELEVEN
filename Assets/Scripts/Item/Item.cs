@@ -1,0 +1,19 @@
+using System;
+    public enum ItemType
+    {
+        Food,
+        Resource,
+        Medicines,
+        Equipment
+    }
+
+    [Serializable]
+    public class Item
+    {
+        public int index;
+        public string name;
+        public string text;
+        public int count;
+        public int point;
+        public ItemType itemType;
+    }

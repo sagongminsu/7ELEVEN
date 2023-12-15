@@ -1,0 +1,5 @@
+Index,Name,Text,Count,Point,ItemType
+301,Herbal medicine,a bitter-smelling herb,0,10,Medicines
+302,Painkiller,It's a painkiller with a strong painkilling effect,0,20,Medicines
+303,First aid kit<A>,a disposable first aid kit that is almost empty,0,40,Medicines
+304,First aid kit<B>,a disposable first aid kit full of contents,0,70,Medicines

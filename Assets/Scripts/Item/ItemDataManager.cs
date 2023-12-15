@@ -65,10 +65,10 @@ public class ItemDataManager : MonoBehaviour
                             count = int.Parse(values[3]),
                             point = int.Parse(values[4]),
                             itemType = (ItemType)Enum.Parse(typeof(ItemType), values[5]),
-                            itemIcon = Resources.Load<Sprite>("ItemIcon/Item/" + values[0]),
+                            itemIcon = Resources.Load<Sprite>("Items/ItemIcon/Item/" + values[0]),
                             canStack = true,
                             maxStackAmount = 99,
-                            dropObject = Resources.Load<GameObject>("ItemPrefabs/" + values[1])
+                            dropObject = Resources.Load<GameObject>("Items/ItemPrefabs/" + values[1])
                         };
                         result.Add((T)(object)newData);
                     }
@@ -84,10 +84,10 @@ public class ItemDataManager : MonoBehaviour
                             itemType = (ItemType)Enum.Parse(typeof(ItemType), values[5]),
                             durability = float.Parse(values[6]),
                             equipmentType = (EquipmentType)Enum.Parse(typeof(EquipmentType), values[7]),
-                            itemIcon = Resources.Load<Sprite>("ItemIcon/Equipment/" + values[0]),
+                            itemIcon = Resources.Load<Sprite>("Items/ItemIcon/Equipment/" + values[0]),
                             canStack = false,
                             maxStackAmount = 1,
-                            dropObject = Resources.Load<GameObject>("EquipmentItemPrefabs/" + values[1])
+                            dropObject = Resources.Load<GameObject>("Items/EquipmentItemPrefabs/" + values[1])
                         };
                         result.Add((T)(object)newData);
                     }

@@ -29,7 +29,7 @@ public class ItemSlotUI : MonoBehaviour
     {
         curSlot = slot;
         icon.gameObject.SetActive(true);
-        //icon.sprite = slot.item.icon;
+        icon.sprite = slot.item.itemIcon;
         quatityText.text = slot.quantity > 1 ? slot.quantity.ToString() : string.Empty;
 
         if (outline != null)
@@ -47,6 +47,6 @@ public class ItemSlotUI : MonoBehaviour
 
     public void OnButtonClick()
     {
-        //Inventory.instance.SelectItem(index);
+        Inventory.instance.SelectItem(index);
     }
 }

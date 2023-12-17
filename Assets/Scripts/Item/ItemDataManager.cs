@@ -17,6 +17,8 @@ public class ItemDataManager : MonoBehaviour
         get { return instance; }
     }
 
+
+
     public void Awake()
     {
         if (instance == null)

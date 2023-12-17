@@ -3522,7 +3522,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1544193425}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1544193425
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3680,16 +3692,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiSlots: []
-  inventoryWindow: {fileID: 0}
+  inventoryWindow: {fileID: 1550303502}
   dropPosition: {fileID: 0}
-  selectedItemName: {fileID: 0}
-  selectedItemDescription: {fileID: 0}
-  selectedItemStatNames: {fileID: 0}
-  selectedItemStatValues: {fileID: 0}
-  useButton: {fileID: 0}
-  equipButton: {fileID: 0}
-  unEquipButton: {fileID: 0}
-  dropButton: {fileID: 0}
+  selectedItemName: {fileID: 1477279292}
+  selectedItemDescription: {fileID: 1352906583}
+  selectedItemStatNames: {fileID: 2082505317}
+  selectedItemStatValues: {fileID: 2022361909}
+  useButton: {fileID: 1544193422}
+  equipButton: {fileID: 2041557049}
+  unEquipButton: {fileID: 676933143}
+  dropButton: {fileID: 125057979}
   onOpenInventory:
     m_PersistentCalls:
       m_Calls: []

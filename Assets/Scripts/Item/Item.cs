@@ -26,4 +26,6 @@ public enum ItemType
         public bool canStack;
         public int maxStackAmount;
 
+        [Header("consumable")]
+        public ItemDataManager[] consumables;
     }

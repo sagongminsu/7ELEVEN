@@ -5,20 +5,8 @@ using UnityEngine;
 
 public class Equip : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public virtual void OnAttackInput()
     {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    internal void OnAttackInput()
-    {
-        throw new NotImplementedException();
     }
 }

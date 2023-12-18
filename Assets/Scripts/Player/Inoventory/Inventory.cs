@@ -63,7 +63,7 @@ public class Inventory : MonoBehaviour
             uiSlots[i].Clear();
         }
 
-        //ClearSeletecItemWindow();
+        ClearSeletecItemWindow();
     }
 
     public void OnInventoryButton(InputAction.CallbackContext callbackContext)
@@ -221,17 +221,32 @@ public class Inventory : MonoBehaviour
 
     public void OnEquipButton()
     {
+        if (uiSlots[curEquipIndex].equipped)
+        {
+            UnEquip(curEquipIndex);
+        }
 
+        uiSlots[selectedItemIndex].equipped = true;
+        curEquipIndex = selectedItemIndex;
+        ItemDataManager.Instance.Equals(selectedItem.item);
+        UpdateUI();
+
+        SelectItem(selectedItemIndex);
     }
 
     void UnEquip(int index)
     {
+        //uiSlots[index].equipped = false;
+        //ItemDataManager.Instance.Equals();
+        UpdateUI();
 
+        if (selectedItemIndex == index)
+            SelectItem(index);
     }
 
     public void OnUnEquipButton()
     {
-
+        UnEquip(selectedItemIndex);
     }
 
     public void OnDropButton()

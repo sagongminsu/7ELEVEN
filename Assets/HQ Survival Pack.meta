@@ -1,6 +1,10 @@
 fileFormatVersion: 2
-guid: cb9dc0779de966347ac5789b44c8c80f
+<<<<<<<< HEAD:Assets/HQ Survival Pack.meta
+guid: c36a64aca3cdddf4ab21cf850ee20d10
 folderAsset: yes
+========
+guid: 304a5748b784bc241be3c08d67013b21
+>>>>>>>> object_chochozane:Assets/SimpleLowPolyNature/Scenes/DemoDay.unity.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

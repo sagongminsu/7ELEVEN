@@ -1,6 +1,10 @@
 fileFormatVersion: 2
-guid: 18fc8399f094f534bb5d8406848c947e
+<<<<<<<< HEAD:Assets/CSV.meta
+guid: 6f8f3882ef4deab4586a9f32c765aaba
 folderAsset: yes
+========
+guid: bb795f7046abec344abca1ec3b936b57
+>>>>>>>> object_chochozane:Assets/Scenes/ObjectTestScene.unity.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

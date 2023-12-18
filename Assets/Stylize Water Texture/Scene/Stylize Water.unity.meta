@@ -1,5 +1,9 @@
 fileFormatVersion: 2
-guid: f0dc6c2fa94df594aaa63aca69a33e07
+<<<<<<<< HEAD:Assets/Stylize Water Texture/Scene/Stylize Water.unity.meta
+guid: 07fe1831de21bd1438e053df18f4542f
+========
+guid: 2b1246029315cd14c8935d8b61af1388
+>>>>>>>> object_chochozane:Assets/Resources/Polytope Studio/Lowpoly_Characters/SRP/PT_Skeleton_URP_12.1.10.unitypackage.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

@@ -1,5 +1,9 @@
 fileFormatVersion: 2
-guid: bb06157746433ce41a50b43ba377b611
+<<<<<<<< HEAD:Assets/Scenes/PlayerTestScene.unity.meta
+guid: 5f3f694ddd60b634fac0f02df988533f
+========
+guid: 7dc40f7db7ec3c444b9a53909d5d6f14
+>>>>>>>> object_chochozane:Assets/Resources/Polytope Studio/Lowpoly_Characters/SRP/PT_Skeleton_URP_10.10.1.unitypackage.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

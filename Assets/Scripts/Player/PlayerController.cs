@@ -21,6 +21,9 @@ public class PlayerController : MonoBehaviour
 
     [HideInInspector]
     public bool canLook = true;
+    public bool isInCookArea = false;
+    public bool isInBlacksmithArea = false;
+
 
     private Rigidbody _rigidbody;
 

@@ -1,11 +1,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GetItemData : MonoBehaviour
+public class GetItemData : MonoBehaviour, IInteractable
 {
     string itemName;
     Item item;
-    EquipmentItem equipmentItem;
 
     void Start()
     {
@@ -22,18 +21,9 @@ public class GetItemData : MonoBehaviour
             item = FindItem(itemName, ItemDataManager.Instance.medicinesList);
         }
 
-        equipmentItem = FindItem(itemName, ItemDataManager.Instance.equipmentItemItemList);
-
-        if (equipmentItem != null)
+        if (item == null)
         {
-            Debug.Log($"Found item: {equipmentItem.name}");
-            Debug.Log($"Found item: {equipmentItem.index}");
-        }
-
-        if (item != null)
-        {
-            Debug.Log($"Found item: {item.name}");
-            Debug.Log($"Found item: {item.index}");
+            item = FindItem(itemName, ItemDataManager.Instance.equipmentItemItemList);
         }
         
     }
@@ -46,5 +36,15 @@ public class GetItemData : MonoBehaviour
     EquipmentItem FindItem(string itemName, List<EquipmentItem> itemList)
     {
         return itemList.Find(item => item.name == itemName);
+    }
+
+    public string GetInteractPrompt()
+    {
+        return string.Format($"Pickup {item.name}");
+    }
+
+    public void OnInteract()
+    {
+        Destroy(gameObject);
     }
 }

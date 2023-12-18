@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Xml.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,7 +5,9 @@ using UnityEngine.UI;
 public class BuildingManager : MonoBehaviour
 {
     static public BuildingManager instance;
-    
+
+    public KeyCode m_BuildButton;
+
     public GameObject m_NameText;
     public GameObject m_DescText;
     public Image m_BuildingImage;
@@ -27,26 +26,36 @@ public class BuildingManager : MonoBehaviour
 
     private void Start()
     {
-        m_Camera = Camera.main;
+        m_Camera = Camera.main;//메인 카메라 가져오기
         m_Construction = false;
-        //HideUi();//버튼을 누르기 전까진 Ui 가리기
+        HideUi();//버튼을 누르기 전까진 Ui 가리기
     }
 
     private void Update()
     {
-        if(m_Construction)//건설 모드일 경우
+        if (Input.GetKeyUp(m_BuildButton)) 
         {
-            if(m_Object == null)
+            Cursor.lockState = CursorLockMode.None;
+            ShowUi();
+            PlayerController.instance.canLook = false;
+        }
+
+
+
+        if (m_Construction)//건설 모드일 경우
+        {
+            if (m_Object == null)
             {
-                m_Object = Instantiate(m_BuildingInfo.m_Prefab);
-            }else
+                m_Object = Instantiate(m_BuildingInfo.m_Prefab);//건축물 생성
+            }
+            else
             {
-                //m_Object.transform.position = 
+                m_Ray = m_Camera.ScreenPointToRay(Input.mousePosition);//카메라를 기준으로 레이 생성
+                m_Object.transform.position = m_Ray.origin + m_Ray.direction * 5;//카메라 기준으로 정면 거리 10 정도에 오브젝트 위치 변경 
             }
 
             if (Input.GetMouseButtonUp(0))
             {
-
                 //해당 위치에 건축물을 고정시키고 반투명 해제
 
                 m_Construction = false;
@@ -69,15 +78,14 @@ public class BuildingManager : MonoBehaviour
     {
         this.m_BuildingInfo = info;//건물 정보를 가져온다.
 
-        UpdateDesc();
+        UpdateDesc();//이름과 설명, 아이콘을 가져온 건물 정보로 업데이트
     }
 
     public void ConstructionMode()
     {
-        
-
-        m_Construction = true;
-        //
+        m_Construction = true;//건축모드를 키고 UI 숨기기
+        HideUi();
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     private void UpdateDesc()//가져온 건물 정보에 맞춰서 예시 이미지와 이름, 설명을 출력
@@ -87,8 +95,5 @@ public class BuildingManager : MonoBehaviour
         m_BuildingImage.sprite = m_BuildingInfo.m_Icon;
 
     }
-
-
-  
 
 }

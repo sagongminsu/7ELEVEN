@@ -37,8 +37,8 @@ public class Inventory : MonoBehaviour
 
     private int curEquipIndex;
 
-    //private PlayerController controller;
-    //private PlayerConditions condition;
+    private PlayerController controller;
+    private PlayerConditions condition;
 
     [Header("Events")]
     public UnityEvent onOpenInventory;
@@ -48,8 +48,8 @@ public class Inventory : MonoBehaviour
     void Awake()
     {
         instance = this;
-        //controller = GetComponent<PlayerController>();
-        //condition = GetComponent<PlayerConditions>();
+        controller = GetComponent<PlayerController>();
+        condition = GetComponent<PlayerConditions>();
     }
     private void Start()
     {
@@ -81,13 +81,13 @@ public class Inventory : MonoBehaviour
         {
             inventoryWindow.SetActive(false);
             onCloseInventory?.Invoke();
-            //controller.ToggleCursor(false);
+            controller.ToggleCursor(false);
         }
         else
         {
             inventoryWindow.SetActive(true);
             onOpenInventory?.Invoke();
-            //controller.ToggleCursor(true);
+            controller.ToggleCursor(true);
         }
     }
 
@@ -176,8 +176,8 @@ public class Inventory : MonoBehaviour
 
         for (int i = 0; i < selectedItem.item.consumables.Length; i++)
         {
-            //selectedItemStatNames.text += selectedItem.item.consumables[i].itemType.ToString() + "\n";
-            //selectedItemStatValues.text += selectedItem.item.consumables[i].values.ToString() + "\n";
+            selectedItemStatNames.text += selectedItem.item.consumables[i].type.ToString() + "\n";
+            selectedItemStatValues.text += selectedItem.item.consumables[i].value.ToString() + "\n";
         }
 
         useButton.SetActive(selectedItem.item.itemType == ItemType.Medicines);
@@ -207,13 +207,13 @@ public class Inventory : MonoBehaviour
         {
             for (int i = 0; i < selectedItem.item.consumables.Length; i++)
             {
-                //switch (selectedItem.item.consumables[i].type)
-                //{
-                //    case ConsumableType.Health:
-                //        condition.Heal(selectedItem.item.consumables[i].value); break;
-                //    case ConsumableType.Hunger:
-                //        condition.Eat(selectedItem.item.consumables[i].value); break;
-                //}
+                switch (selectedItem.item.consumables[i].type)
+                {
+                    case ConsumableType.Health:
+                        condition.Heal(selectedItem.item.consumables[i].value); break;
+                    case ConsumableType.Hunger:
+                        condition.Eat(selectedItem.item.consumables[i].value); break;
+                }
             }
         }
         RemoveSelectedItem();
@@ -228,7 +228,7 @@ public class Inventory : MonoBehaviour
 
         uiSlots[selectedItemIndex].equipped = true;
         curEquipIndex = selectedItemIndex;
-        ItemDataManager.Instance.Equals(selectedItem.item);
+        //ItemDataManager.Instance.Equals(selectedItem.item);
         UpdateUI();
 
         SelectItem(selectedItemIndex);
@@ -236,7 +236,7 @@ public class Inventory : MonoBehaviour
 
     void UnEquip(int index)
     {
-        //uiSlots[index].equipped = false;
+        uiSlots[index].equipped = false;
         //ItemDataManager.Instance.Equals();
         UpdateUI();
 

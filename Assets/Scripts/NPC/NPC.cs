@@ -10,13 +10,13 @@ public enum AIState
     Fleeing
 }
 
-public class NPC : MonoBehaviour // ,IDamagable Ãß°¡ÇØ¾ß ÇÔ - ¿¡·¯³ª¼­ ÁÖ¼®Ã³¸®ÇØµÒ
+public class NPC : MonoBehaviour, IDamageable
 {
     [Header("Stats")]
     public int health;
     public float walkSpeed;
     public float runSpeed;
-    //public ItemData[] dropOnDeath;
+    public Item[] dropOnDeath;
 
     [Header("AI")]
     private AIState aiState;
@@ -50,209 +50,209 @@ public class NPC : MonoBehaviour // ,IDamagable Ãß°¡ÇØ¾ß ÇÔ - ¿¡·¯³ª¼­ ÁÖ¼®Ã³¸®Ç
         meshRenderers = GetComponentsInChildren<SkinnedMeshRenderer>();
     }
 
-    //private void Start()
-    //{
-    //    SetState(AIState.Wandering);
-    //}
+    private void Start()
+    {
+        SetState(AIState.Wandering);
+    }
 
-    //private void Update()
-    //{
-    //    //playerDistance = Vector3.Distance(transform.position, PlayerController.instance.transform.position);
+    private void Update()
+    {
+        playerDistance = Vector3.Distance(transform.position, PlayerController.instance.transform.position);
 
-    //    animator.SetBool("Moving", aiState != AIState.Idle);
+        animator.SetBool("Moving", aiState != AIState.Idle);
 
-    //    switch (aiState)
-    //    {
-    //        case AIState.Idle: PassiveUpdate(); break;
-    //        case AIState.Wandering: PassiveUpdate(); break;
-    //        case AIState.Attacking: AttackingUpdate(); break;
-    //        case AIState.Fleeing: FleeingUpdate(); break;
-    //    }
-    //}
+        switch (aiState)
+        {
+            case AIState.Idle: PassiveUpdate(); break;
+            case AIState.Wandering: PassiveUpdate(); break;
+            case AIState.Attacking: AttackingUpdate(); break;
+            case AIState.Fleeing: FleeingUpdate(); break;
+        }
+    }
 
-    //private void PassiveUpdate()
-    //{
-    //    if (aiState == AIState.Wandering && agent.remainingDistance < 0.1f) // Wandering »óÅÂ¿¡¼­, ´ÙÀ½¿¡ ÀÌµ¿ÇØ¾ß ÇÏ´Â °Å¸®°¡ ÂªÀ» ¶§ 
-    //    {
-    //        SetState(AIState.Idle); // Idle ·Î ÀüÈ¯.
-    //        Invoke("WanderToNewLocation", Random.Range(minWanderDistance, maxWanderDistance));
-    //    }
+    private void PassiveUpdate()
+    {
+        if (aiState == AIState.Wandering && agent.remainingDistance < 0.1f) // Wandering »óÅÂ¿¡¼­, ´ÙÀ½¿¡ ÀÌµ¿ÇØ¾ß ÇÏ´Â °Å¸®°¡ ÂªÀ» ¶§ 
+        {
+            SetState(AIState.Idle); // Idle ·Î ÀüÈ¯.
+            Invoke("WanderToNewLocation", Random.Range(minWanderDistance, maxWanderDistance));
+        }
 
-    //    if (playerDistance < detectDistance) // player °¡ ÀÎÁöÇÏ´Â °Å¸® ¾È¿¡ µé¾î¿Ô´Ù
-    //    {
-    //        SetState(AIState.Attacking);
-    //    }
-    //}
+        if (playerDistance < detectDistance) // player °¡ ÀÎÁöÇÏ´Â °Å¸® ¾È¿¡ µé¾î¿Ô´Ù
+        {
+            SetState(AIState.Attacking);
+        }
+    }
 
-    //private void AttackingUpdate()
-    //{
-    //    if (playerDistance > attackDistance || !IsPlayerInFieldOfView()) // // °ø°ÝÁßÀÏ ¶§ ÇÃ·¹ÀÌ¾î°¡ ³ªº¸´Ù ¸Ö¾îÁø´Ù ?
-    //    {
-    //        agent.isStopped = false;
-    //        NavMeshPath path = new NavMeshPath();
-    //        if (agent.CalculatePath(PlayerController.instace.transform.position, path)) // °æ·Î Ã¼Å©ÇØº¸°í °æ·Î°¡ °¡´ÉÇÑ °æ·Î¸é ±× °æ·Î·Î ÀÌµ¿ÇÏ°í ¾Æ´Ï¸é µµ¸Á°£´Ù
-    //        {
-    //            agent.SetDestination(PlayerController.instance.transform.position);
-    //        }
-    //        else
-    //        {
-    //            SetState(AIState.Fleeing);
-    //        }
-    //    }
-    //    else
-    //    {
-    //        // ½ÇÁ¦ °ø°ÝÇÏ´Â ºÎºÐ
-    //        agent.isStopped = true;
-    //        if (Time.time - lastAttackTime > attackRate) // ÀÌ ½Ã°£ ¾È¿¡¼­ °ø°Ý ÁøÇà
-    //        {
-    //            lastAttackTime = Time.time;
-    //            PlayerController.instance.GetComponent<IDamagable>().TakePhysicalDamage(damage); // µ¥¹ÌÁö Àü´Þ
-    //            animator.speed = 1;
-    //            animator.SetTrigger("Attack");
-    //        }
-    //    }
-    //}
+    private void AttackingUpdate()
+    {
+        if (playerDistance > attackDistance || !IsPlayerInFieldOfView()) // // °ø°ÝÁßÀÏ ¶§ ÇÃ·¹ÀÌ¾î°¡ ³ªº¸´Ù ¸Ö¾îÁø´Ù ?
+        {
+            agent.isStopped = false;
+            NavMeshPath path = new NavMeshPath();
+            if (agent.CalculatePath(PlayerController.instance.transform.position, path)) // °æ·Î Ã¼Å©ÇØº¸°í °æ·Î°¡ °¡´ÉÇÑ °æ·Î¸é ±× °æ·Î·Î ÀÌµ¿ÇÏ°í ¾Æ´Ï¸é µµ¸Á°£´Ù
+            {
+                agent.SetDestination(PlayerController.instance.transform.position);
+            }
+            else
+            {
+                SetState(AIState.Fleeing);
+            }
+        }
+        else
+        {
+            // ½ÇÁ¦ °ø°ÝÇÏ´Â ºÎºÐ
+            agent.isStopped = true;
+            if (Time.time - lastAttackTime > attackRate) // ÀÌ ½Ã°£ ¾È¿¡¼­ °ø°Ý ÁøÇà
+            {
+                lastAttackTime = Time.time;
+                PlayerController.instance.GetComponent<IDamageable>().TakePhysicalDamage(damage); // µ¥¹ÌÁö Àü´Þ
+                animator.speed = 1;
+                animator.SetTrigger("Attack");
+            }
+        }
+    }
 
-    //private void FleeingUpdate()
-    //{
-    //    if (agent.remainingDistance < 0.1f) // ÀÌµ¿ÇÏ´Â µ¥°¡ °¡±î¿î °æ¿ì
-    //    {
-    //        agent.SetDestination(GetFleeLocation());
-    //    }
-    //    else // °æ·Î°¡ ¸¹ÀÌ ³²¾ÆÀÖ´Â °æ¿ì
-    //    {
-    //        SetState(AIState.Wandering);
-    //    }
-    //}
+    private void FleeingUpdate()
+    {
+        if (agent.remainingDistance < 0.1f) // ÀÌµ¿ÇÏ´Â µ¥°¡ °¡±î¿î °æ¿ì
+        {
+            agent.SetDestination(GetFleeLocation());
+        }
+        else // °æ·Î°¡ ¸¹ÀÌ ³²¾ÆÀÖ´Â °æ¿ì
+        {
+            SetState(AIState.Wandering);
+        }
+    }
 
-    //private bool IsPlayerInFieldOfView() // ½Ã¾ß°¢¿¡ µé¾î¿À´ÂÁö °Ë»ç
-    //{
-    //    Vector3 directionToPlayer = PlayerController.instance.transform.position - transform.position; // ÇÃ·¹ÀÌ¾î¸¦ ¹Ù¶óº¸´Â ¹æÇâ ±¸ÇÏ±â
-    //    float angle = Vector3.Angle(transform.forward, directionToPlayer);
-    //    // Á¤Áß¾ÓÀÌ 0µµ. »ç¿ëÇÒ ¶§¿¡´Â ¹ÝÀ» ³ª´²¼­ »ç¿ëÇÑ´Ù.
-    //    return angle < fieldOfView * 0.5f;
-    //}
+    private bool IsPlayerInFieldOfView() // ½Ã¾ß°¢¿¡ µé¾î¿À´ÂÁö °Ë»ç
+    {
+        Vector3 directionToPlayer = PlayerController.instance.transform.position - transform.position; // ÇÃ·¹ÀÌ¾î¸¦ ¹Ù¶óº¸´Â ¹æÇâ ±¸ÇÏ±â
+        float angle = Vector3.Angle(transform.forward, directionToPlayer);
+        // Á¤Áß¾ÓÀÌ 0µµ. »ç¿ëÇÒ ¶§¿¡´Â ¹ÝÀ» ³ª´²¼­ »ç¿ëÇÑ´Ù.
+        return angle < fieldOfView * 0.5f;
+    }
 
-    //private void SetState(AIState newState)
-    //{
-    //    aiState = newState;
-    //    switch (aiState)
-    //    {
-    //        case AIState.Idle:
-    //            {
-    //                agent.speed = walkSpeed;
-    //                agent.isStopped = true; // isStopped : ¸ØÃß´Â µ¿ÀÛÀ» ÇÏ¶ó´Â ÀÇ¹Ì.
+    private void SetState(AIState newState)
+    {
+        aiState = newState;
+        switch (aiState)
+        {
+            case AIState.Idle:
+                {
+                    agent.speed = walkSpeed;
+                    agent.isStopped = true; // isStopped : ¸ØÃß´Â µ¿ÀÛÀ» ÇÏ¶ó´Â ÀÇ¹Ì.
 
-    //            }
-    //            break;
-    //        case AIState.Wandering:
-    //            {
-    //                agent.speed = walkSpeed;
-    //                agent.isStopped = false;
-    //            }
-    //            break;
-    //        case AIState.Attacking:
-    //            {
-    //                agent.speed = runSpeed;
-    //                agent.isStopped = false;
-    //            }
-    //            break;
-    //        case AIState.Fleeing:
-    //            {
-    //                agent.speed = runSpeed;
-    //                agent.isStopped = false;
-    //            }
-    //            break;
+                }
+                break;
+            case AIState.Wandering:
+                {
+                    agent.speed = walkSpeed;
+                    agent.isStopped = false;
+                }
+                break;
+            case AIState.Attacking:
+                {
+                    agent.speed = runSpeed;
+                    agent.isStopped = false;
+                }
+                break;
+            case AIState.Fleeing:
+                {
+                    agent.speed = runSpeed;
+                    agent.isStopped = false;
+                }
+                break;
 
-    //    }
+        }
 
-    //    animator.speed = agent.speed / walkSpeed; // ¾Ö´Ï¸ÞÀÌ¼Ç ¼Óµµ Á¶Àý
-    //}
+        animator.speed = agent.speed / walkSpeed; // ¾Ö´Ï¸ÞÀÌ¼Ç ¼Óµµ Á¶Àý
+    }
 
-    //private void WanderToNewLocation()
-    //{
-    //    if (aiState != AIState.Idle)
-    //    {
-    //        return;
-    //    }
-    //    SetState(AIState.Wandering);
-    //    agent.SetDestination(GetWanderLocation());
-    //}
+    private void WanderToNewLocation()
+    {
+        if (aiState != AIState.Idle)
+        {
+            return;
+        }
+        SetState(AIState.Wandering);
+        agent.SetDestination(GetWanderLocation());
+    }
 
-    //private Vector3 GetWanderLocation()
-    //{
-    //    NavMeshHit hit;
-    //    // °æ·Î »ó °¡Àå °¡±î¿î °÷À» °¡Áö°í ¿Â´Ù.
-    //    NavMesh.SamplePosition(transform.position + (Random.onUnitSphere) * Random.Range(minWanderDistance, maxWanderDistance), out hit, maxWanderDistance, NavMesh.AllAreas);
+    private Vector3 GetWanderLocation()
+    {
+        NavMeshHit hit;
+        // °æ·Î »ó °¡Àå °¡±î¿î °÷À» °¡Áö°í ¿Â´Ù.
+        NavMesh.SamplePosition(transform.position + (Random.onUnitSphere) * Random.Range(minWanderDistance, maxWanderDistance), out hit, maxWanderDistance, NavMesh.AllAreas);
 
-    //    int i = 0;
-    //    while (Vector3.Distance(transform.position, hit.position) < detectDistance)
-    //    {
-    //        NavMesh.SamplePosition(transform.position + (Random.onUnitSphere) * Random.Range(minWanderDistance, maxWanderDistance), out hit, maxWanderDistance, NavMesh.AllAreas);
-    //        i++;
-    //        if (i == 30)
-    //            break; // ¸¶À½¿¡ µå´Â °Ô ÀÖ°Å³ª 30¹ø ´Ù ÇÏ¸é ³ª¿Àµµ·Ï !
-    //    }
+        int i = 0;
+        while (Vector3.Distance(transform.position, hit.position) < detectDistance)
+        {
+            NavMesh.SamplePosition(transform.position + (Random.onUnitSphere) * Random.Range(minWanderDistance, maxWanderDistance), out hit, maxWanderDistance, NavMesh.AllAreas);
+            i++;
+            if (i == 30)
+                break; // ¸¶À½¿¡ µå´Â °Ô ÀÖ°Å³ª 30¹ø ´Ù ÇÏ¸é ³ª¿Àµµ·Ï !
+        }
 
-    //    return hit.position;
-    //}
+        return hit.position;
+    }
 
-    //private Vector3 GetFleeLocation()
-    //{
-    //    NavMeshHit hit;
-    //    NavMesh.SamplePosition(transform.position + (Random.onUnitSphere) * safeDistance, out hit, maxWanderDistance, NavMesh.AllAreas);
+    private Vector3 GetFleeLocation()
+    {
+        NavMeshHit hit;
+        NavMesh.SamplePosition(transform.position + (Random.onUnitSphere) * safeDistance, out hit, maxWanderDistance, NavMesh.AllAreas);
 
-    //    int i = 0;
-    //    while (GetDestinationAngle(hit.position) > 90 || playerDistance < safeDistance)
-    //    {
-    //        NavMesh.SamplePosition(transform.position + (Random.onUnitSphere) * Random.Range(minWanderDistance, maxWanderDistance), out hit, maxWanderDistance, NavMesh.AllAreas);
-    //        i++;
-    //        if (i == 30)
-    //            break;
-    //    }
+        int i = 0;
+        while (GetDestinationAngle(hit.position) > 90 || playerDistance < safeDistance)
+        {
+            NavMesh.SamplePosition(transform.position + (Random.onUnitSphere) * Random.Range(minWanderDistance, maxWanderDistance), out hit, maxWanderDistance, NavMesh.AllAreas);
+            i++;
+            if (i == 30)
+                break;
+        }
 
-    //    return hit.position;
-    //}
+        return hit.position;
+    }
 
-    //private float GetDestinationAngle(Vector3 targetPos)
-    //{
-    //    return Vector3.Angle(transform.position - PlayerController.instance.transform.position, transform.position + targetPos); // ¹éÅÍ µÎ °³ »çÀÌÀÇ °¢ ±¸ÇÏ±â
-    //}
+    private float GetDestinationAngle(Vector3 targetPos)
+    {
+        return Vector3.Angle(transform.position - PlayerController.instance.transform.position, transform.position + targetPos); // ¹éÅÍ µÎ °³ »çÀÌÀÇ °¢ ±¸ÇÏ±â
+    }
 
-    //public void TakePhysicalDamage(int damageAmount)
-    //{
-    //    health -= damageAmount;
-    //    if (health <= 0)
-    //    {
-    //        Die();
-    //    }
-    //    StartCoroutine(DamageFlash());
-    //}
+    public void TakePhysicalDamage(int damageAmount)
+    {
+        health -= damageAmount;
+        if (health <= 0)
+        {
+            Die();
+        }
+        StartCoroutine(DamageFlash());
+    }
 
-    //private void Die()
-    //{
-    //    for (int x = 0; x < dropOnDeath.Length; x++)
-    //    {
-    //        Instantiate(dropOnDeath[x].dropPrefab, transform.position + Vector3.up * 2, Quaternion.identity);
-    //    }
+    private void Die()
+    {
+        for (int x = 0; x < dropOnDeath.Length; x++)
+        {
+            Instantiate(dropOnDeath[x].dropObject, transform.position + Vector3.up * 2, Quaternion.identity);
+        }
 
-    //    Destroy(gameObject);
-    //}
+        Destroy(gameObject);
+    }
 
-    //private IEnumerator DamageFlash()
-    //{
-    //    for (int x = 0; x < meshRenderers.Length; x++)
-    //    {
-    //        meshRenderers[x].material.color = new Color(1.0f, 0.6f, 0.6f);
-    //    }
+    private IEnumerator DamageFlash()
+    {
+        for (int x = 0; x < meshRenderers.Length; x++)
+        {
+            meshRenderers[x].material.color = new Color(1.0f, 0.6f, 0.6f);
+        }
 
-    //    yield return new WaitForSeconds(0.1f); // ½ÇÁ¦ ½Ã°£ÃÊ ±â´Ù¸®±â
+        yield return new WaitForSeconds(0.1f); // ½ÇÁ¦ ½Ã°£ÃÊ ±â´Ù¸®±â
 
-    //    for (int x = 0; x < meshRenderers.Length; x++)
-    //    {
-    //        meshRenderers[x].material.color = Color.white;
-    //    }
+        for (int x = 0; x < meshRenderers.Length; x++)
+        {
+            meshRenderers[x].material.color = Color.white;
+        }
 
 
-    //}
+    }
 }

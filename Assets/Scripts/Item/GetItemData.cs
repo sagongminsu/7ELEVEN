@@ -39,7 +39,6 @@ public class GetItemData : MonoBehaviour, IInteractable
     }
     public string GetInteractPrompt()
     {
-        Inventory.instance.AddItem(item);
         return string.Format($"Pickup {item.name}");
     }
 

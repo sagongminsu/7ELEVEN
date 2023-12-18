@@ -70,9 +70,17 @@ public class ItemDataManager : MonoBehaviour
                             itemIcon = Resources.Load<Sprite>("Items/ItemIcon/Item/" + values[0]),
                             canStack = true,
                             maxStackAmount = 99,
-                            dropObject = Resources.Load<GameObject>("Items/ItemPrefabs/" + values[1])
+                            dropObject = Resources.Load<GameObject>("Items/ItemPrefabs/" + values[1]),
                         };
+
+                        if (newData.itemType == ItemType.Food || newData.itemType == ItemType.Medicines)
+                        {
+                            ConsumableType consumableType = newData.itemType == ItemType.Food ? ConsumableType.Hunger : ConsumableType.Health;
+
+                            newData.consumables = new ItemConsumable[] { new ItemConsumable { type = consumableType, value = int.Parse(values[4]) } };
+                        }
                         result.Add((T)(object)newData);
+
                     }
                     else if (typeof(T) == typeof(EquipmentItem) && values.Length == 8)
                     {

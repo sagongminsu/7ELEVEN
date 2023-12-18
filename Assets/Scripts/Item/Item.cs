@@ -9,6 +9,19 @@ public enum ItemType
         Equipment
     }
 
+    public enum ConsumableType
+    {
+        Hunger,
+        Health
+    }
+
+    [System.Serializable]
+public class ItemConsumable
+    {
+        public ConsumableType type;
+        public float value;
+    }
+
     [Serializable]
     public class Item
     {
@@ -26,6 +39,6 @@ public enum ItemType
         public bool canStack;
         public int maxStackAmount;
 
-        [Header("consumable")]
-        public ItemDataManager[] consumables;
+        [Header("ItemConsumable")]
+        public ItemConsumable[] consumables;
     }

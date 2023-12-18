@@ -50,7 +50,7 @@ public class ItemDataManager : MonoBehaviour
         {
             using (StreamReader reader = new StreamReader(path))
             {
-                reader.ReadLine(); // Skip header
+                reader.ReadLine();
 
                 while (!reader.EndOfStream)
                 {

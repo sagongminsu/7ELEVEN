@@ -62,7 +62,7 @@ public class InteractionManager : MonoBehaviour
     private void SetPromptText()
     {
         promptText.gameObject.SetActive(true);
-        promptText.text = string.Format("<b>[E]</b> {0}", curInteractable.GetInteractPrompt());
+        promptText.text = string.Format("Get {0} press <b>[E]</b>Key", curInteractable.GetInteractPrompt());
     }
 
     public void OnInteractInput(InputAction.CallbackContext callbackContext)

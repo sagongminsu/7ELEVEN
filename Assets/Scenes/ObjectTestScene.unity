@@ -2081,10 +2081,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7892374938400340174, guid: eef244d8261f5ac4fa7a26f561cf666a, type: 3}
-      propertyPath: detectDistance
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 9055726455390206706, guid: eef244d8261f5ac4fa7a26f561cf666a, type: 3}
       propertyPath: m_Name
       value: Alien

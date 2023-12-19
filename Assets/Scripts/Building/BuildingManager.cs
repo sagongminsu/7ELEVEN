@@ -2,6 +2,8 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+
 public class BuildingManager : MonoBehaviour
 {
     static public BuildingManager instance;
@@ -12,7 +14,7 @@ public class BuildingManager : MonoBehaviour
     public GameObject m_DescText;
     public Image m_BuildingImage;
 
-    private BuildingInfo m_BuildingInfo;
+    private StructureData m_BuildingInfo;
     private Camera m_Camera;
     private Ray m_Ray;
 
@@ -29,6 +31,7 @@ public class BuildingManager : MonoBehaviour
     {
         m_Camera = Camera.main;//메인 카메라 가져오기
         m_Construction = false;
+
         HideUi();//버튼을 누르기 전까진 Ui 가리기
     }
 
@@ -70,7 +73,7 @@ public class BuildingManager : MonoBehaviour
             PlayerController.instance.canLook = false;
             ShowUi();
 
-            m_Toggle = !m_Toggle;
+            m_Toggle = !m_Toggle;//토글 반대로 전환
         }
         else
         {
@@ -78,11 +81,11 @@ public class BuildingManager : MonoBehaviour
             PlayerController.instance.canLook = true;
             HideUi();
 
-            m_Toggle = !m_Toggle;
+            m_Toggle = !m_Toggle;//토글 반대로 전환
         }
     }
 
-    public void SelectBuilding(ref BuildingInfo info)//스크롤 뷰에서 건물 버튼을 누르면 호출
+    public void SelectBuilding(ref StructureData info)//스크롤 뷰에서 건물 버튼을 누르면 호출
     {
         this.m_BuildingInfo = info;//건물 정보를 가져온다.
 
@@ -91,13 +94,13 @@ public class BuildingManager : MonoBehaviour
 
     public void ConstructionMode()
     {
-        m_Construction = true;//건축모드를 키고 UI 숨기기
+        m_Construction = true;//건설 모드를 키고 UI 숨기기
         ToggleUi();
     }
 
     private void UpdateDesc()//가져온 건물 정보에 맞춰서 예시 이미지와 이름, 설명을 출력
     {
-        m_NameText.GetComponent<TextMeshProUGUI>().text = m_BuildingInfo.m_BuildingName;
+        m_NameText.GetComponent<TextMeshProUGUI>().text = m_BuildingInfo.m_StructureName;
         m_DescText.GetComponent<TextMeshProUGUI>().text = m_BuildingInfo.m_Desc;
         m_BuildingImage.sprite = m_BuildingInfo.m_Icon;
 

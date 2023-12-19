@@ -51,12 +51,13 @@ public class GetItemData : MonoBehaviour, IInteractable
         }
         else
         {
-            return "아이템 없음";
+            return "아이템 정보 없음 ";
         }
     }
 
     public void OnInteract()
     {
+        Inventory.instance.AddItem(item);
         Destroy(gameObject);
     }
 }

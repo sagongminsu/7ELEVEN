@@ -19,4 +19,37 @@ public class Recipe
     public RecipeType recipeType;
     public int resultItem;
     public int resultCount;
+
+    public Item FindItemByIndex(int itemIndex)
+    {
+        foreach (Item item in ItemDataManager.Instance.resourceList)
+        {
+            if (item.index == itemIndex)
+            {
+                return item;
+            }
+        }
+        foreach (Item item in ItemDataManager.Instance.medicinesList)
+        {
+            if (item.index == itemIndex)
+            {
+                return item;
+            }
+        }
+        foreach (Item item in ItemDataManager.Instance.foodList)
+        {
+            if (item.index == itemIndex)
+            {
+                return item;
+            }
+        }
+        foreach (Item item in ItemDataManager.Instance.equipmentItemItemList)
+        {
+            if (item.index == itemIndex)
+            {
+                return item;
+            }
+        }
+        return null;
+    }
 }

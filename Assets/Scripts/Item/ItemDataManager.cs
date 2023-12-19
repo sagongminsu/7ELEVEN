@@ -30,16 +30,16 @@ public class ItemDataManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
-    }
-
-    void Start()
-    {
         resourceList = ReadCSVFile<Item>("Assets/CSV/ResourceItem.csv");
         foodList = ReadCSVFile<Item>("Assets/CSV/FoodItem.csv");
         medicinesList = ReadCSVFile<Item>("Assets/CSV/RecoveryItem.csv");
         equipmentItemItemList = ReadCSVFile<EquipmentItem>("Assets/CSV/EquipmentItem.csv");
         recipes = ReadCSVFile<Recipe>("Assets/CSV/RecipeData.csv");
+    }
+
+    void Start()
+    {
+
     }
 
     List<T> ReadCSVFile<T>(string path)

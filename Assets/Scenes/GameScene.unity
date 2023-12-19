@@ -10954,11 +10954,16 @@ MonoBehaviour:
   Alien: {fileID: 9055726455390206706, guid: eef244d8261f5ac4fa7a26f561cf666a, type: 3}
   Sheep1: {fileID: 5558807952650602004, guid: 331eeb33c4217fc49bdef51bfbcc3190, type: 3}
   Sheep2: {fileID: 5355348256181497294, guid: 437ef8c53c7553644b4dc876c062deab, type: 3}
-  treeCount: 100
-  rockCount: 30
-  alienCount: 5
-  sheep1Count: 10
-  sheep2Count: 10
+  treeCount: 0
+  rockCount: 0
+  alienCount: 0
+  sheep1Count: 0
+  sheep2Count: 0
+  treeRate: 1
+  rockRate: 1
+  alienRate: 1
+  sheep1Rate: 1
+  sheep2Rate: 1
 --- !u!4 &1140344681
 Transform:
   m_ObjectHideFlags: 0

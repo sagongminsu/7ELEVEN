@@ -16,6 +16,11 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] public int alienCount;
     [SerializeField] public int sheep1Count;
     [SerializeField] public int sheep2Count;
+    [SerializeField] public float treeRate;
+    [SerializeField] public float rockRate;
+    [SerializeField] public float alienRate;
+    [SerializeField] public float sheep1Rate;
+    [SerializeField] public float sheep2Rate;
 
     RaycastHit hit;
 
@@ -29,12 +34,17 @@ public class SpawnManager : MonoBehaviour
         InitialSpawnAlien();
         InitialSpawnSheep1();
         InitialSpawnSheep2();
+
+        InvokeRepeating("SpawnTree", 1.0f, treeRate);
+        InvokeRepeating("SpawnRock", 1.0f, rockRate);
+        InvokeRepeating("SpawnAlien", 1.0f, alienRate);
+        InvokeRepeating("SpawnSheep1", 1.0f, sheep1Rate);
+        InvokeRepeating("SpawnSheep2", 1.0f, sheep2Rate);
     }
 
     // Update is called once per frame
     void Update()
     {
-        timer += Time.deltaTime;
     }
 
     void InitialSpawnRock()
@@ -111,4 +121,66 @@ public class SpawnManager : MonoBehaviour
             Instantiate(Sheep2, hit.point, Quaternion.identity);
         }
     }
+
+    void SpawnTree()
+    {
+        do
+        {
+            Vector3 randomSpawnPosition = new Vector3(Random.Range(25f, 125f), 100, Random.Range(-35f, 75f));
+            Physics.Raycast(randomSpawnPosition, Vector3.down, out hit, 200, 8);
+
+        } while (Physics.OverlapSphere(hit.point, 3).Length > 2);
+
+        Instantiate(Tree, hit.point, Quaternion.identity);
+    }
+
+    void SpawnRock()
+    {
+        do
+        {
+            Vector3 randomSpawnPosition = new Vector3(Random.Range(25f, 125f), 100, Random.Range(-35f, 75f));
+            Physics.Raycast(randomSpawnPosition, Vector3.down, out hit, 200, 8);
+
+        } while (Physics.OverlapSphere(hit.point, 3).Length > 2);
+
+        Instantiate(Rock, hit.point, Quaternion.Euler(Random.Range(-180f, 180f), Random.Range(-180f, 180f), Random.Range(-180f, 180f)));
+    }
+
+    void SpawnAlien()
+    {
+        do
+        {
+            Vector3 randomSpawnPosition = new Vector3(Random.Range(25f, 125f), 100, Random.Range(-35f, 75f));
+            Physics.Raycast(randomSpawnPosition, Vector3.down, out hit, 200, 8);
+
+        } while (Physics.OverlapSphere(hit.point, 3).Length > 2);
+
+        Instantiate(Alien, hit.point, Quaternion.identity);
+    }
+
+    void SpawnSheep1()
+    {
+        do
+        {
+            Vector3 randomSpawnPosition = new Vector3(Random.Range(25f, 125f), 100, Random.Range(-35f, 75f));
+            Physics.Raycast(randomSpawnPosition, Vector3.down, out hit, 200, 8);
+
+        } while (Physics.OverlapSphere(hit.point, 3).Length > 2);
+
+        Instantiate(Sheep1, hit.point, Quaternion.identity);
+    }
+
+    void SpawnSheep2()
+    {
+        do
+        {
+            Vector3 randomSpawnPosition = new Vector3(Random.Range(25f, 125f), 100, Random.Range(-35f, 75f));
+            Physics.Raycast(randomSpawnPosition, Vector3.down, out hit, 200, 8);
+
+        } while (Physics.OverlapSphere(hit.point, 3).Length > 2);
+
+        Instantiate(Sheep2, hit.point, Quaternion.identity);
+    }
+
+
 }

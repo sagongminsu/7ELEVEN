@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1968180394446998960}
   - component: {fileID: 2807830558874770965}
   - component: {fileID: 4810489879510360133}
-  m_Layer: 8
+  m_Layer: 6
   m_Name: Stone Sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,7 +109,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4682650962112100238, guid: ce2204ad7743b3445befdd8da95cda27, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5456056596174302516, guid: ce2204ad7743b3445befdd8da95cda27, type: 3}
       propertyPath: m_RootOrder

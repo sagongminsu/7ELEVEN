@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 7444991234531569318}
   - component: {fileID: 8107073775098838825}
   - component: {fileID: 6871681215207917736}
-  m_Layer: 0
+  - component: {fileID: 2389129697664106440}
+  m_Layer: 6
   m_Name: Leather Armor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -133,3 +134,15 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2389129697664106440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3666522499293769470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c802c87310b5c540b8437239cb5c75a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

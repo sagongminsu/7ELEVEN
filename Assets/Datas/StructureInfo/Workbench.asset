@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: db0df947a4a2505419c9fe4be54da5da, type: 3}
-  m_Name: Campfire
+  m_Name: Workbench
   m_EditorClassIdentifier: 
-  m_BuildingName: Campfire
-  m_Desc: This Is Campfire
-  m_Icon: {fileID: 21300000, guid: 8f28955d92038974a9b04aafaeea79b0, type: 3}
-  m_Prefab: {fileID: 8475171451159580080, guid: 6046a64e832cdad44ac9e18fe66d19f1, type: 3}
+  m_StructureName: Workbench
+  m_Desc: This Is Workbench
+  m_Icon: {fileID: 21300000, guid: e37ee0b1cbe20c5458102626b95a6b7c, type: 3}
+  m_Prefab: {fileID: 4751309179195205155, guid: 405182fb1a70a9d4a8a4c06cae1e6b5f, type: 3}
+  items: []

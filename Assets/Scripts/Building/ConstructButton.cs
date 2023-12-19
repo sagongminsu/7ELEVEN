@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ConstructButton : MonoBehaviour
+public class ConstructButton : MonoBehaviour//건설하기 버튼
 {
 
     public void OnClick()

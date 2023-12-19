@@ -9372,9 +9372,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1407158940}
+      - m_Target: {fileID: 1407158947}
         m_TargetAssemblyTypeName: Inventory, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: OnEquipButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -16277,7 +16277,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: -6502157044575377646, guid: b5a46e5929d477f449d9e8753aa6f51e, type: 3}
+      - m_Target: {fileID: 1407158947}
         m_TargetAssemblyTypeName: Inventory, Assembly-CSharp
         m_MethodName: OnUnEquipButton
         m_Mode: 1

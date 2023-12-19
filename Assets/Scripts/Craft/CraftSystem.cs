@@ -10,7 +10,9 @@ public class CraftSystem : MonoBehaviour
     Item item3;
     Item resultItem;
 
-    public TextMeshProUGUI CraftTxt;
+    public TextMeshProUGUI craftTxt;
+
+    public GameObject craftTxtBox;
 
     private void Start()
     {
@@ -29,13 +31,15 @@ public class CraftSystem : MonoBehaviour
             {
                 Inventory.instance.AddItem(resultItem);
             }
-            CraftTxt.text = $"Completed {resultItem.name} Acount {recipe.resultCount}";
-            FadeOutCraftTxt();
+            craftTxt.text = $"Completed {resultItem.name} Acount {recipe.resultCount}";
+            StartCoroutine(FadeOutCraftTxt());
+            Debug.Log("성공");
         }
         else
         {
-            CraftTxt.text = "There are not enough items in the inventory";
-            FadeOutCraftTxt();
+            craftTxt.text = "There are not enough items in the inventory";
+            StartCoroutine(FadeOutCraftTxt());
+            Debug.Log("자원없음");
         }
     }
 
@@ -60,19 +64,12 @@ public class CraftSystem : MonoBehaviour
 
 
 
-    private IEnumerator FadeOutCraftTxt()
+    IEnumerator FadeOutCraftTxt()
     {
-        float duration = 4f;
-        float timer = 0f;
-
-        while (timer < duration)
-        {
-            float alpha = Mathf.Lerp(1f, 0f, timer / duration);
-            CraftTxt.color = new Color(CraftTxt.color.r, CraftTxt.color.g, CraftTxt.color.b, alpha);
-
-            timer += Time.deltaTime;
-            yield return null;
-        }
-        CraftTxt.text = string.Empty;
+        craftTxtBox.SetActive(true);
+        yield return new WaitForSecondsRealtime(2f);
+        craftTxtBox.SetActive(false);
+        craftTxt.text = string.Empty;
     }
+
 }

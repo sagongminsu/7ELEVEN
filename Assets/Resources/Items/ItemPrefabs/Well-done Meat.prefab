@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 8605025296636885638}
   - component: {fileID: 4667114045617583395}
   - component: {fileID: 7430970406994264553}
-  - component: {fileID: 3624251965129531041}
   - component: {fileID: 995555898156116236}
+  - component: {fileID: 9183657077087548035}
   m_Layer: 6
   m_Name: Well-done Meat
   m_TagString: Untagged
@@ -85,8 +85,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &3624251965129531041
-MeshCollider:
+--- !u!114 &995555898156116236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8944395455035007036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c802c87310b5c540b8437239cb5c75a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &9183657077087548035
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -103,19 +115,6 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 1842422088742957033, guid: b0d616cdeed04b140a3fbb3063f5beea, type: 3}
---- !u!114 &995555898156116236
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8944395455035007036}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c802c87310b5c540b8437239cb5c75a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Size: {x: 0.45981598, y: 0.04043288, z: 0.29153767}
+  m_Center: {x: 0.004028484, y: 0.021826347, z: 0.008569971}

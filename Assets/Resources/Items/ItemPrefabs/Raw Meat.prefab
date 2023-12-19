@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 5443399096237353226}
   - component: {fileID: 8945570762499548847}
   - component: {fileID: 6611841153773277797}
-  - component: {fileID: 6187850120148817947}
   - component: {fileID: -2202679361478652238}
+  - component: {fileID: -2866984217479548482}
   m_Layer: 6
   m_Name: Raw Meat
   m_TagString: Untagged
@@ -85,8 +85,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &6187850120148817947
-MeshCollider:
+--- !u!114 &-2202679361478652238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4666017353234428848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c802c87310b5c540b8437239cb5c75a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &-2866984217479548482
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -103,19 +115,6 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -33420144425338470, guid: b89b6237d7d126647884ce2160c115f2, type: 3}
---- !u!114 &-2202679361478652238
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4666017353234428848}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c802c87310b5c540b8437239cb5c75a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Size: {x: 0.45981598, y: 0.04043288, z: 0.29153767}
+  m_Center: {x: 0.004028484, y: 0.021826347, z: 0.008569971}

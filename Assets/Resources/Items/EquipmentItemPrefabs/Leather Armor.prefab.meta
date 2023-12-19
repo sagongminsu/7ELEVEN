@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scenes/GameScene1.unity.meta
+guid: e069fb4769498e04fa511a8898a7b00e
+DefaultImporter:
+========
 guid: 30f7a72ab6492494f9eb1982bfd92a0f
 PrefabImporter:
+>>>>>>>> main2:Assets/Resources/Items/EquipmentItemPrefabs/Leather Armor.prefab.meta
   externalObjects: {}
   userData: 
   assetBundleName: 

@@ -23,6 +23,7 @@ public class CraftMenu : MonoBehaviour
 
     public void OnOffCraftMenu()
     {
+        SoundManager.Instance.CraftAudio("Open", 1f);
         if (Open == false)
         {
             controller.ToggleCursor(true);

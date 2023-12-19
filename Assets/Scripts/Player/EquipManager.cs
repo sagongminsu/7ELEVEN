@@ -22,6 +22,7 @@ public class EquipManager : MonoBehaviour
     
     public void OnAttackInput(InputAction.CallbackContext context)
     {
+        Debug.Log("АјАн");
         if (context.phase == InputActionPhase.Performed && curEquip != null && playerController.canLook)
         {
             curEquip.OnAttackInput();
@@ -31,7 +32,7 @@ public class EquipManager : MonoBehaviour
     public void EquipNew(Item item)
     {
         UnEquip();
-        // curEquip = Instantiate(item.equipPregab, equipParent).GetComponent<Equip>();
+        //curEquip = Instantiate(item.equipPrefab, equipParent).GetComponent<Equip>();
     }
 
     public void UnEquip()

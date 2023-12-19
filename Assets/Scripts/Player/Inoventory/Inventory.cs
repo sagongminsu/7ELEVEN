@@ -280,6 +280,13 @@ public class Inventory : MonoBehaviour
 
     public bool HasItems(Item item, int quantity)
     {
+        foreach (ItemSlot slot in slots)
+        {
+            if (slot.item == item)
+            {
+                return true;
+            }
+        }
         return false;
     }
 }

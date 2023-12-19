@@ -13,7 +13,7 @@ public class SoundManager : MonoBehaviour
     public AudioClip craftingSound;
     public AudioClip failedSound;
 
-    [Header("interactableSound")]
+    [Header("InteractableSound")]
     public AudioSource interactableAudioSource;
     public AudioClip getItemSound;
 

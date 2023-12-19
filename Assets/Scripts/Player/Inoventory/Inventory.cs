@@ -272,7 +272,24 @@ public class Inventory : MonoBehaviour
 
     public void RemoveItem(Item item)
     {
+        for (int i = 0; i < slots.Length; i++)
+        {
+            if (slots[i].item == item)
+            {
+                slots[i].quantity--;
+                if (slots[i].quantity <= 0)
+                {
+                    if (uiSlots[i].equipped)
+                    {
+                        UnEquip(i);
+                    }
 
+                    slots[i].item = null;
+                }
+                UpdateUI();
+                return;
+            }
+        }
     }
 
     public bool HasItems(Item item, int quantity)

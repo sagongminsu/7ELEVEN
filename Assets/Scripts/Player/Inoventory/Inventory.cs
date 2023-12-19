@@ -15,10 +15,6 @@ public class ItemSlot
 
 public class Inventory : MonoBehaviour
 {
-    public AudioSource OpenSound;
-    public AudioClip openSound; 
-
-
     public ItemSlotUI[] uiSlots;
     public ItemSlot[] slots;
 
@@ -84,19 +80,12 @@ public class Inventory : MonoBehaviour
             inventoryWindow.SetActive(false);
             onCloseInventory?.Invoke();
             controller.ToggleCursor(false);
-
-
         }
         else
         {
             inventoryWindow.SetActive(true);
             onOpenInventory?.Invoke();
             controller.ToggleCursor(true);
-            if (openSound != null && OpenSound != null)
-            {
-                OpenSound.clip = openSound;
-                OpenSound.Play();
-            }
         }
     }
 
@@ -283,24 +272,36 @@ public class Inventory : MonoBehaviour
 
     public void RemoveItem(Item item)
     {
+    }
+
+    public void ConsumptionItem(Item item)
+    {
+        ItemSlot slot = FindItemSlot(item);
+
+        if (slot != null && slot.quantity > 0)
+        {
+            slot.quantity--;
+
+            if (slot.quantity <= 0)
+            {
+                slot.item = null;
+            }
+
+            UpdateUI();
+        }
+    }
+
+    private ItemSlot FindItemSlot(Item item)
+    {
         for (int i = 0; i < slots.Length; i++)
         {
             if (slots[i].item == item)
             {
-                slots[i].quantity--;
-                if (slots[i].quantity <= 0)
-                {
-                    if (uiSlots[i].equipped)
-                    {
-                        UnEquip(i);
-                    }
-
-                    slots[i].item = null;
-                }
-                UpdateUI();
-                return;
+                return slots[i];
             }
         }
+
+        return null;
     }
 
     public bool HasItems(Item item, int quantity)

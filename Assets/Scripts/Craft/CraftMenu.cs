@@ -1,3 +1,5 @@
+using System.Collections;
+using TMPro;
 using UnityEngine;
 
 public class CraftMenu : MonoBehaviour
@@ -10,6 +12,9 @@ public class CraftMenu : MonoBehaviour
     public GameObject blacksmithMenu;
 
     bool Open = false;
+
+    public GameObject alarmBox;
+    public TextMeshProUGUI alarmTxt;
 
     private void Start()
     {
@@ -49,18 +54,36 @@ public class CraftMenu : MonoBehaviour
 
     public void OnCookMenu()
     {
-        mainMenu.SetActive(false);
-        cookMenu.SetActive(true);
-        normalMenu.SetActive(false);
-        blacksmithMenu.SetActive(false);
+        if (PlayerController.instance.isInCookArea)
+        {
+            mainMenu.SetActive(false);
+            cookMenu.SetActive(true);
+            normalMenu.SetActive(false);
+            blacksmithMenu.SetActive(false);
+        }
+        else
+        {
+            alarmTxt.text = "Need Fire";
+            StartCoroutine(Alarm());
+            Debug.Log("Need Fire");
+        }
     }
 
     public void OnBlackSmithMenu()
     {
-        mainMenu.SetActive(false);
-        cookMenu.SetActive(false);
-        normalMenu.SetActive(false);
-        blacksmithMenu.SetActive(true);
+        if (PlayerController.instance.isInBlacksmithArea)
+        {
+            mainMenu.SetActive(false);
+            cookMenu.SetActive(false);
+            normalMenu.SetActive(false);
+            blacksmithMenu.SetActive(true);
+        }
+        else
+        {
+            alarmTxt.text = "Need Warkbanch";
+            StartCoroutine(Alarm());
+            Debug.Log("Need Warkbanch");
+        }
     }
 
     public void ReturnMainMenu()
@@ -69,5 +92,13 @@ public class CraftMenu : MonoBehaviour
         cookMenu.SetActive(false);
         normalMenu.SetActive(false);
         blacksmithMenu.SetActive(false);
+    }
+
+    IEnumerator Alarm()
+    {
+        alarmBox.SetActive(true);
+        yield return new WaitForSecondsRealtime(2f);
+        alarmBox.SetActive(false);
+        alarmTxt.text = string.Empty;
     }
 }

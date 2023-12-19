@@ -5,3 +5,5 @@ Index,Name,Text,Count,Point,ItemType
 204,Mushrooms,Mushrooms that look fishy,0,3,Food
 205,Stew,stew with mushrooms and meat,0,50,Food
 206,Apple,a sweet and sour fresh apple,0,50,Food
+207,ApplePie,a sweet ApplePie,0,80,Food
+208,AppleStew,stew with mushrooms and Apple,0,50,Food

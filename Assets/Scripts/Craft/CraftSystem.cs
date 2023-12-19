@@ -16,11 +16,11 @@ public class CraftSystem : MonoBehaviour
 
     private void Start()
     {
+        recipe = GetComponent<RecipeData>().recipe;
         item1 = recipe.FindItemByIndex(recipe.need1);
         item2 = recipe.FindItemByIndex(recipe.need2);
         item3 = recipe.FindItemByIndex(recipe.need3);
         resultItem = recipe.FindItemByIndex(recipe.resultItem);
-        recipe = GetComponent<RecipeData>().recipe;
     }
 
     public void Crafting()
@@ -31,14 +31,29 @@ public class CraftSystem : MonoBehaviour
             {
                 Inventory.instance.AddItem(resultItem);
             }
+
+            for(int i = 0; i<recipe.count1; i++)
+            {
+                Inventory.instance.ConsumptionItem(item1);
+            }
+
+            for (int i = 0; i < recipe.count2; i++)
+            {
+                Inventory.instance.ConsumptionItem(item2);
+            }
+
+            for (int i = 0; i < recipe.count3; i++)
+            {
+                Inventory.instance.ConsumptionItem(item3);
+            }
             craftTxt.text = $"Completed {resultItem.name} Acount {recipe.resultCount}";
-            StartCoroutine(FadeOutCraftTxt());
+            StartCoroutine(Alarm());
             Debug.Log("성공");
         }
         else
         {
             craftTxt.text = "There are not enough items in the inventory";
-            StartCoroutine(FadeOutCraftTxt());
+            StartCoroutine(Alarm());
             Debug.Log("자원없음");
         }
     }
@@ -64,7 +79,7 @@ public class CraftSystem : MonoBehaviour
 
 
 
-    IEnumerator FadeOutCraftTxt()
+    IEnumerator Alarm()
     {
         craftTxtBox.SetActive(true);
         yield return new WaitForSecondsRealtime(2f);

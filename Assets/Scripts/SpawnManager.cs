@@ -14,8 +14,8 @@ public class SpawnManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SpawnRock();
-        SpawnTree();
+        InitialSpawnRock();
+        InitialSpawnTree();
     }
 
     // Update is called once per frame
@@ -24,7 +24,7 @@ public class SpawnManager : MonoBehaviour
         
     }
 
-    void SpawnRock()
+    void InitialSpawnRock()
     {
         for (int i = 0; i < rockCount; i++)
         {
@@ -32,12 +32,12 @@ public class SpawnManager : MonoBehaviour
 
             if (Physics.Raycast(randomSpawnPosition, Vector3.down, out hit, 200, 8))
             {
-                Instantiate(Rock, hit.point, Quaternion.identity);
+                Instantiate(Rock, hit.point, Quaternion.Euler(Random.Range(-180f, 180f), Random.Range(-180f, 180f), Random.Range(-180f, 180f)));
             }
         }
     }
 
-    void SpawnTree()
+    void InitialSpawnTree()
     {
         for (int i = 0; i < treeCount; i++)
         {

@@ -291,7 +291,36 @@ public class Inventory : MonoBehaviour
 
     public void RemoveItem(Item item)
     {
+    }
 
+    public void ConsumptionItem(Item item)
+    {
+        ItemSlot slot = FindItemSlot(item);
+
+        if (slot != null && slot.quantity > 0)
+        {
+            slot.quantity--;
+
+            if (slot.quantity <= 0)
+            {
+                slot.item = null;
+            }
+
+            UpdateUI();
+        }
+    }
+
+    private ItemSlot FindItemSlot(Item item)
+    {
+        for (int i = 0; i < slots.Length; i++)
+        {
+            if (slots[i].item == item)
+            {
+                return slots[i];
+            }
+        }
+
+        return null;
     }
 
     public bool HasItems(Item item, int quantity)

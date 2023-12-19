@@ -5,7 +5,7 @@ using UnityEngine.UIElements;
 
 public class Resource : MonoBehaviour
 {
-    //public ItemData itemToGive;
+    public Item itemToGive;
     public int quantityPerHit = 1;
     public int capacity;
 
@@ -16,7 +16,7 @@ public class Resource : MonoBehaviour
             if (capacity <= 0) { break; }
 
             capacity -= 1;
-            //Instantiate(itemToGive.dropPrefab, hitPoint + Vector3.up, Quaternion.LookRotation(hitNormal, Vector3.up)); // 충돌이 일어난 곳에서 나를 바라보는 방향으로 생성한다는 의미
+            Instantiate(itemToGive.dropObject, hitPoint + Vector3.up, Quaternion.LookRotation(hitNormal, Vector3.up)); // 충돌이 일어난 곳에서 나를 바라보는 방향으로 생성한다는 의미
         }
 
         if (capacity <= 0)

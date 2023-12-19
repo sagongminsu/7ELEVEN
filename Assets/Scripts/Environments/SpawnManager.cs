@@ -62,9 +62,9 @@ public class SpawnManager : MonoBehaviour
                 Vector3 randomSpawnPosition = new Vector3(Random.Range(25f, 125f), 100, Random.Range(-35f, 75f));
                 Physics.Raycast(randomSpawnPosition, Vector3.down, out hit, 200, 8);
 
-            } while (Physics.OverlapSphere(hit.point, 3).Length > 2);
+            } while (Physics.OverlapSphere(hit.point, 3).Length > 1);
 
-            Instantiate(Rock, hit.point, Quaternion.Euler(Random.Range(-180f, 180f), Random.Range(-180f, 180f), Random.Range(-180f, 180f)), Rocks.transform);
+            Instantiate(Rock, hit.point, Quaternion.Euler(Random.Range(-90f, -45f), Random.Range(-180f, 180f), Random.Range(-90f, -45f)), Rocks.transform);
         }
     }
 
@@ -77,7 +77,7 @@ public class SpawnManager : MonoBehaviour
                 Vector3 randomSpawnPosition = new Vector3(Random.Range(25f, 125f), 100, Random.Range(-35f, 75f));
                 Physics.Raycast(randomSpawnPosition, Vector3.down, out hit, 200, 8);
 
-            } while (Physics.OverlapSphere(hit.point, 3).Length > 2);
+            } while (Physics.OverlapSphere(hit.point, 3).Length > 1);
 
             Instantiate(Tree, hit.point, Quaternion.identity, Trees.transform);
         }
@@ -92,7 +92,7 @@ public class SpawnManager : MonoBehaviour
                 Vector3 randomSpawnPosition = new Vector3(Random.Range(25f, 125f), 100, Random.Range(-35f, 75f));
                 Physics.Raycast(randomSpawnPosition, Vector3.down, out hit, 200, 8);
 
-            } while (Physics.OverlapSphere(hit.point, 3).Length > 2);
+            } while (Physics.OverlapSphere(hit.point, 3).Length > 1);
 
             Instantiate(Alien, hit.point, Quaternion.identity, Aliens.transform);
         }
@@ -107,7 +107,7 @@ public class SpawnManager : MonoBehaviour
                 Vector3 randomSpawnPosition = new Vector3(Random.Range(25f, 125f), 100, Random.Range(-35f, 75f));
                 Physics.Raycast(randomSpawnPosition, Vector3.down, out hit, 200, 8);
 
-            } while (Physics.OverlapSphere(hit.point, 3).Length > 2);
+            } while (Physics.OverlapSphere(hit.point, 3).Length > 1);
 
             Instantiate(Sheep1, hit.point, Quaternion.identity, Sheeps.transform);
         }
@@ -122,7 +122,7 @@ public class SpawnManager : MonoBehaviour
                 Vector3 randomSpawnPosition = new Vector3(Random.Range(25f, 125f), 100, Random.Range(-35f, 75f));
                 Physics.Raycast(randomSpawnPosition, Vector3.down, out hit, 200, 8);
 
-            } while (Physics.OverlapSphere(hit.point, 3).Length > 2);
+            } while (Physics.OverlapSphere(hit.point, 3).Length > 1);
 
             Instantiate(Sheep2, hit.point, Quaternion.identity, Sheeps.transform);
         }
@@ -135,7 +135,7 @@ public class SpawnManager : MonoBehaviour
             Vector3 randomSpawnPosition = new Vector3(Random.Range(25f, 125f), 100, Random.Range(-35f, 75f));
             Physics.Raycast(randomSpawnPosition, Vector3.down, out hit, 200, 8);
 
-        } while (Physics.OverlapSphere(hit.point, 3).Length > 2);
+        } while (Physics.OverlapSphere(hit.point, 3).Length > 1);
 
         Instantiate(Tree, hit.point, Quaternion.identity, Trees.transform);
     }
@@ -147,9 +147,9 @@ public class SpawnManager : MonoBehaviour
             Vector3 randomSpawnPosition = new Vector3(Random.Range(25f, 125f), 100, Random.Range(-35f, 75f));
             Physics.Raycast(randomSpawnPosition, Vector3.down, out hit, 200, 8);
 
-        } while (Physics.OverlapSphere(hit.point, 3).Length > 2);
+        } while (Physics.OverlapSphere(hit.point, 3).Length > 1);
 
-        Instantiate(Rock, hit.point, Quaternion.Euler(Random.Range(-180f, 180f), Random.Range(-180f, 180f), Random.Range(-180f, 180f)), Rocks.transform);
+        Instantiate(Rock, hit.point, Quaternion.Euler(Random.Range(-90f, -45f), Random.Range(-180f, 180f), Random.Range(-90f, -45f)), Rocks.transform);
     }
 
     void SpawnAlien()
@@ -159,7 +159,7 @@ public class SpawnManager : MonoBehaviour
             Vector3 randomSpawnPosition = new Vector3(Random.Range(25f, 125f), 100, Random.Range(-35f, 75f));
             Physics.Raycast(randomSpawnPosition, Vector3.down, out hit, 200, 8);
 
-        } while (Physics.OverlapSphere(hit.point, 3).Length > 2);
+        } while (Physics.OverlapSphere(hit.point, 3).Length > 1);
 
         Instantiate(Alien, hit.point, Quaternion.identity, Aliens.transform);
     }
@@ -171,7 +171,7 @@ public class SpawnManager : MonoBehaviour
             Vector3 randomSpawnPosition = new Vector3(Random.Range(25f, 125f), 100, Random.Range(-35f, 75f));
             Physics.Raycast(randomSpawnPosition, Vector3.down, out hit, 200, 8);
 
-        } while (Physics.OverlapSphere(hit.point, 3).Length > 2);
+        } while (Physics.OverlapSphere(hit.point, 3).Length > 1);
 
         Instantiate(Sheep1, hit.point, Quaternion.identity, Sheeps.transform);
     }
@@ -183,7 +183,7 @@ public class SpawnManager : MonoBehaviour
             Vector3 randomSpawnPosition = new Vector3(Random.Range(25f, 125f), 100, Random.Range(-35f, 75f));
             Physics.Raycast(randomSpawnPosition, Vector3.down, out hit, 200, 8);
 
-        } while (Physics.OverlapSphere(hit.point, 3).Length > 2);
+        } while (Physics.OverlapSphere(hit.point, 3).Length > 1);
 
         Instantiate(Sheep2, hit.point, Quaternion.identity, Sheeps.transform);
     }

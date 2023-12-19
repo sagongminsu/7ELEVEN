@@ -323,8 +323,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8063952956861990319}
-  - component: {fileID: 5434782174064161824}
   - component: {fileID: 8830262778359909288}
+  - component: {fileID: -5136608077723145562}
   m_Layer: 7
   m_Name: Resource_Tree
   m_TagString: Untagged
@@ -346,10 +346,37 @@ Transform:
   m_Children:
   - {fileID: 6202554556412463737}
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &5434782174064161824
-BoxCollider:
+--- !u!114 &8830262778359909288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8314849205228563006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75171386b907bae4fb7a3dd49ab6d23e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemToGive:
+    index: 0
+    name: 
+    text: 
+    count: 0
+    point: 0
+    itemType: 0
+    itemIcon: {fileID: 0}
+    dropObject: {fileID: 0}
+    canStack: 0
+    maxStackAmount: 0
+    consumables: []
+    equipPrefab: {fileID: 0}
+  quantityPerHit: 1
+  capacity: 0
+--- !u!64 &-5136608077723145562
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -366,20 +393,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 6.0288982, z: 1}
-  m_Center: {x: 0, y: 2.6722322, z: 0}
---- !u!114 &8830262778359909288
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8314849205228563006}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75171386b907bae4fb7a3dd49ab6d23e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  quantityPerHit: 1
-  capacity: 0
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 1424200115404124385, guid: f222748f1796b2e49a56a2fbf7563247, type: 3}

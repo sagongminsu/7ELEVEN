@@ -8,8 +8,7 @@ using UnityEngine.InputSystem;
 using static UnityEditor.Progress;
 
 public class ItemSlot
-{   
-
+{
     public Item item;
     public int quantity;
 }
@@ -18,7 +17,6 @@ public class Inventory : MonoBehaviour
 {
     public ItemSlotUI[] uiSlots;
     public ItemSlot[] slots;
-
 
     public GameObject inventoryWindow;
     public Transform dropPosition;
@@ -180,7 +178,7 @@ public class Inventory : MonoBehaviour
             selectedItemStatValues.text += selectedItem.item.consumables[i].value.ToString() + "\n";
         }
 
-        useButton.SetActive(selectedItem.item.itemType == ItemType.Medicines);
+        useButton.SetActive(selectedItem.item.itemType == ItemType.Food || selectedItem.item.itemType == ItemType.Medicines);
         equipButton.SetActive(selectedItem.item.itemType == ItemType.Equipment && !uiSlots[index].equipped);
         unEquipButton.SetActive(selectedItem.item.itemType == ItemType.Equipment && uiSlots[index].equipped);
         dropButton.SetActive(true);
@@ -203,7 +201,21 @@ public class Inventory : MonoBehaviour
 
     public void OnUseButton()
     {
-        if (selectedItem.item.itemType == ItemType.Medicines)
+        if (selectedItem.item.itemType == ItemType.Food)
+        {
+            for (int i = 0; i < selectedItem.item.consumables.Length; i++)
+            {
+                switch (selectedItem.item.consumables[i].type)
+                {
+                    case ConsumableType.Health:
+                        condition.Heal(selectedItem.item.consumables[i].value); break;
+                    case ConsumableType.Hunger:
+                        condition.Eat(selectedItem.item.consumables[i].value); break;
+                }
+            }
+        }
+
+        else if (selectedItem.item.itemType == ItemType.Medicines)
         {
             for (int i = 0; i < selectedItem.item.consumables.Length; i++)
             {
@@ -221,32 +233,17 @@ public class Inventory : MonoBehaviour
 
     public void OnEquipButton()
     {
-        if (uiSlots[curEquipIndex].equipped)
-        {
-            UnEquip(curEquipIndex);
-        }
 
-        uiSlots[selectedItemIndex].equipped = true;
-        curEquipIndex = selectedItemIndex;
-        //ItemDataManager.Instance.Equals(selectedItem.item);
-        UpdateUI();
-
-        SelectItem(selectedItemIndex);
     }
 
     void UnEquip(int index)
     {
-        uiSlots[index].equipped = false;
-        //ItemDataManager.Instance.Equals();
-        UpdateUI();
 
-        if (selectedItemIndex == index)
-            SelectItem(index);
     }
 
     public void OnUnEquipButton()
     {
-        UnEquip(selectedItemIndex);
+
     }
 
     public void OnDropButton()

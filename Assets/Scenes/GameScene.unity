@@ -6027,7 +6027,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a22485d4a96d534b99135b1b18f59db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Rock: {fileID: 7652443275250837897, guid: a96015b2edd62864696316aeac12e01b, type: 3}
+  Rock: {fileID: 4006983662745760918, guid: bafad2c89b18dda4fa62229f0eeb60d7, type: 3}
   Tree: {fileID: 8314849205228563006, guid: 2cfdfff0c394e534888c2220aa19b06c, type: 3}
   treeCount: 20
   rockCount: 50

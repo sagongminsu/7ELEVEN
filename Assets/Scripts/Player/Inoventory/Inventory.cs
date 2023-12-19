@@ -8,8 +8,7 @@ using UnityEngine.InputSystem;
 using static UnityEditor.Progress;
 
 public class ItemSlot
-{   
-
+{
     public Item item;
     public int quantity;
 }
@@ -18,7 +17,6 @@ public class Inventory : MonoBehaviour
 {
     public ItemSlotUI[] uiSlots;
     public ItemSlot[] slots;
-
 
     public GameObject inventoryWindow;
     public Transform dropPosition;
@@ -37,8 +35,8 @@ public class Inventory : MonoBehaviour
 
     private int curEquipIndex;
 
-    //private PlayerController controller;
-    //private PlayerConditions condition;
+    private PlayerController controller;
+    private PlayerConditions condition;
 
     [Header("Events")]
     public UnityEvent onOpenInventory;
@@ -48,8 +46,8 @@ public class Inventory : MonoBehaviour
     void Awake()
     {
         instance = this;
-        //controller = GetComponent<PlayerController>();
-        //condition = GetComponent<PlayerConditions>();
+        controller = GetComponent<PlayerController>();
+        condition = GetComponent<PlayerConditions>();
     }
     private void Start()
     {
@@ -63,7 +61,7 @@ public class Inventory : MonoBehaviour
             uiSlots[i].Clear();
         }
 
-        //ClearSeletecItemWindow();
+        ClearSeletecItemWindow();
     }
 
     public void OnInventoryButton(InputAction.CallbackContext callbackContext)
@@ -81,13 +79,13 @@ public class Inventory : MonoBehaviour
         {
             inventoryWindow.SetActive(false);
             onCloseInventory?.Invoke();
-            //controller.ToggleCursor(false);
+            controller.ToggleCursor(false);
         }
         else
         {
             inventoryWindow.SetActive(true);
             onOpenInventory?.Invoke();
-            //controller.ToggleCursor(true);
+            controller.ToggleCursor(true);
         }
     }
 
@@ -176,11 +174,11 @@ public class Inventory : MonoBehaviour
 
         for (int i = 0; i < selectedItem.item.consumables.Length; i++)
         {
-            //selectedItemStatNames.text += selectedItem.item.consumables[i].itemType.ToString() + "\n";
-            //selectedItemStatValues.text += selectedItem.item.consumables[i].values.ToString() + "\n";
+            selectedItemStatNames.text += selectedItem.item.consumables[i].type.ToString() + "\n";
+            selectedItemStatValues.text += selectedItem.item.consumables[i].value.ToString() + "\n";
         }
 
-        useButton.SetActive(selectedItem.item.itemType == ItemType.Medicines);
+        useButton.SetActive(selectedItem.item.itemType == ItemType.Food || selectedItem.item.itemType == ItemType.Medicines);
         equipButton.SetActive(selectedItem.item.itemType == ItemType.Equipment && !uiSlots[index].equipped);
         unEquipButton.SetActive(selectedItem.item.itemType == ItemType.Equipment && uiSlots[index].equipped);
         dropButton.SetActive(true);
@@ -203,17 +201,31 @@ public class Inventory : MonoBehaviour
 
     public void OnUseButton()
     {
-        if (selectedItem.item.itemType == ItemType.Medicines)
+        if (selectedItem.item.itemType == ItemType.Food)
         {
             for (int i = 0; i < selectedItem.item.consumables.Length; i++)
             {
-                //switch (selectedItem.item.consumables[i].type)
-                //{
-                //    case ConsumableType.Health:
-                //        condition.Heal(selectedItem.item.consumables[i].value); break;
-                //    case ConsumableType.Hunger:
-                //        condition.Eat(selectedItem.item.consumables[i].value); break;
-                //}
+                switch (selectedItem.item.consumables[i].type)
+                {
+                    case ConsumableType.Health:
+                        condition.Heal(selectedItem.item.consumables[i].value); break;
+                    case ConsumableType.Hunger:
+                        condition.Eat(selectedItem.item.consumables[i].value); break;
+                }
+            }
+        }
+
+        else if (selectedItem.item.itemType == ItemType.Medicines)
+        {
+            for (int i = 0; i < selectedItem.item.consumables.Length; i++)
+            {
+                switch (selectedItem.item.consumables[i].type)
+                {
+                    case ConsumableType.Health:
+                        condition.Heal(selectedItem.item.consumables[i].value); break;
+                    case ConsumableType.Hunger:
+                        condition.Eat(selectedItem.item.consumables[i].value); break;
+                }
             }
         }
         RemoveSelectedItem();
@@ -284,6 +296,13 @@ public class Inventory : MonoBehaviour
 
     public bool HasItems(Item item, int quantity)
     {
+        foreach (ItemSlot slot in slots)
+        {
+            if (slot.item == item)
+            {
+                return true;
+            }
+        }
         return false;
     }
 }

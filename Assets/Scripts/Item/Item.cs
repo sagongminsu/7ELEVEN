@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public enum ItemType
+    public enum ItemType
     {
         Food,
         Resource,
@@ -16,7 +16,7 @@ public enum ItemType
     }
 
     [System.Serializable]
-public class ItemConsumable
+    public class ItemConsumable
     {
         public ConsumableType type;
         public float value;

@@ -32,7 +32,14 @@ public class EquipManager : MonoBehaviour
     public void EquipNew(Item item)
     {
         UnEquip();
-        //curEquip = Instantiate(item.equipPrefab, equipParent).GetComponent<Equip>();
+        EquipmentItem equipmentItem = ItemDataManager.Instance.equipmentItemItemList.Find(equipItem => equipItem.name == item.name);
+
+        if (equipmentItem != null)
+        {
+            GameObject equipPrefab = equipmentItem.dropObject;
+            curEquip = Instantiate(equipPrefab, equipParent).GetComponent<Equip>();
+        }
+
     }
 
     public void UnEquip()

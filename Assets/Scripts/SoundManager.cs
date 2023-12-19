@@ -7,11 +7,15 @@ public class SoundManager : MonoBehaviour
 {
     private static SoundManager instance;
 
-    [Header ("Craft")]
+    [Header("Craft")]
     public AudioSource craftAudioSource;
     public AudioClip openSound;
     public AudioClip craftingSound;
     public AudioClip failedSound;
+
+    [Header("interactableSound")]
+    public AudioSource interactableAudioSource;
+    public AudioClip getItemSound;
 
     public static SoundManager Instance
     {
@@ -49,6 +53,21 @@ public class SoundManager : MonoBehaviour
                 craftAudioSource.clip = failedSound;
                 craftAudioSource.volume = volume;
                 craftAudioSource.Play();
+                break;
+            default:
+                Debug.LogWarning("해당하는 오디오 클립을 찾을 수 없습니다.");
+                return;
+        }
+    }
+
+    public void GetItemSound(string name, float volume = 1.0f)
+    {
+        switch (name)
+        {
+            case "GetItem":
+                interactableAudioSource.clip = getItemSound;
+                interactableAudioSource.volume = volume;
+                interactableAudioSource.Play();
                 break;
             default:
                 Debug.LogWarning("해당하는 오디오 클립을 찾을 수 없습니다.");

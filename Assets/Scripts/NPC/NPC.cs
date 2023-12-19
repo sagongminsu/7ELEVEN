@@ -235,7 +235,14 @@ public class NPC : MonoBehaviour, IDamageable
         {
             Instantiate(dropOnDeath[x].dropObject, transform.position + Vector3.up * 2, Quaternion.identity);
         }
+        // 죽는 애니메이션 추가
+        animator.SetTrigger("Die");
+        // 죽는 모션 후 Destroy 함수실행
+        Invoke("DestroyObject", 7);
+    }
 
+    private void DestroyObject()
+    {
         Destroy(gameObject);
     }
 

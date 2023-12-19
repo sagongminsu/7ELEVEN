@@ -22,23 +22,27 @@ using UnityEngine;
         public float value;
     }
 
-    [Serializable]
-    public class Item
-    {
-        [Header("info")]
-        public int index;
-        public string name;
-        public string text;
-        public int count;
-        public int point;
-        public ItemType itemType;
-        public Sprite itemIcon;
-        public GameObject dropObject;
+[Serializable]
+public class Item
+{
+    [Header("info")]
+    public int index;
+    public string name;
+    public string text;
+    public int count;
+    public int point;
+    public ItemType itemType;
+    public Sprite itemIcon;
+    public GameObject dropObject;
 
-        [Header("Stacking")]
-        public bool canStack;
-        public int maxStackAmount;
+    [Header("Stacking")]
+    public bool canStack;
+    public int maxStackAmount;
 
-        [Header("ItemConsumable")]
-        public ItemConsumable[] consumables;
-    }
+    [Header("ItemConsumable")]
+    public ItemConsumable[] consumables;
+
+    [Header("Equip")]
+    public GameObject equipPrefab;
+    
+}

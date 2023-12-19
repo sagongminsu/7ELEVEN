@@ -845,6 +845,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 4f8f1924-a73a-4b92-acc7-afad70ca3411
     m_ActionName: Player/Interact[/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: e4b6ead4-98a8-4e04-8cc0-5c1b7e994698
+    m_ActionName: Player/Craft[/Keyboard/q]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -1999,6 +2003,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackRate: 0
   attackDistance: 0
+  useStamina: 0
   doesGatherResources: 0
   doesDealDamage: 0
   damage: 0

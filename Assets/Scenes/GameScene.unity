@@ -6029,8 +6029,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Rock: {fileID: 4006983662745760918, guid: bafad2c89b18dda4fa62229f0eeb60d7, type: 3}
   Tree: {fileID: 8314849205228563006, guid: 2cfdfff0c394e534888c2220aa19b06c, type: 3}
-  treeCount: 20
-  rockCount: 50
+  Alien: {fileID: 9055726455390206706, guid: eef244d8261f5ac4fa7a26f561cf666a, type: 3}
+  Sheep1: {fileID: 5558807952650602004, guid: 331eeb33c4217fc49bdef51bfbcc3190, type: 3}
+  Sheep2: {fileID: 5355348256181497294, guid: 437ef8c53c7553644b4dc876c062deab, type: 3}
+  treeCount: 30
+  rockCount: 30
+  alienCount: 5
+  sheep1Count: 10
+  sheep2Count: 10
 --- !u!4 &1233507384
 Transform:
   m_ObjectHideFlags: 0

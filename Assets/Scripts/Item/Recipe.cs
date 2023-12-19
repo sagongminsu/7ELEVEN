@@ -3,7 +3,8 @@ using System;
 public enum RecipeType
 {
     Normal,
-    Cook
+    Cook,
+    Smith
 }
 
 [Serializable]

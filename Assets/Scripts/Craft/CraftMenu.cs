@@ -49,18 +49,32 @@ public class CraftMenu : MonoBehaviour
 
     public void OnCookMenu()
     {
-        mainMenu.SetActive(false);
-        cookMenu.SetActive(true);
-        normalMenu.SetActive(false);
-        blacksmithMenu.SetActive(false);
+        if (PlayerController.instance.isInCookArea)
+        {
+            mainMenu.SetActive(false);
+            cookMenu.SetActive(true);
+            normalMenu.SetActive(false);
+            blacksmithMenu.SetActive(false);
+        }
+        else
+        {
+            Debug.Log("Need Fire");
+        }
     }
 
     public void OnBlackSmithMenu()
     {
-        mainMenu.SetActive(false);
-        cookMenu.SetActive(false);
-        normalMenu.SetActive(false);
-        blacksmithMenu.SetActive(true);
+        if (PlayerController.instance.isInBlacksmithArea)
+        {
+            mainMenu.SetActive(false);
+            cookMenu.SetActive(false);
+            normalMenu.SetActive(false);
+            blacksmithMenu.SetActive(true);
+        }
+        else
+        {
+            Debug.Log("Need Warkbanch");
+        }
     }
 
     public void ReturnMainMenu()

@@ -172,10 +172,17 @@ public class Inventory : MonoBehaviour
         selectedItemStatNames.text = string.Empty;
         selectedItemStatValues.text = string.Empty;
 
-        for (int i = 0; i < selectedItem.item.consumables.Length; i++)
+        if (selectedItem.item.itemType != ItemType.Equipment)
         {
-            selectedItemStatNames.text += selectedItem.item.consumables[i].type.ToString() + "\n";
-            selectedItemStatValues.text += selectedItem.item.consumables[i].value.ToString() + "\n";
+            for (int i = 0; i < selectedItem.item.consumables.Length; i++)
+            {
+                selectedItemStatNames.text += selectedItem.item.consumables[i].type.ToString() + "\n";
+                selectedItemStatValues.text += selectedItem.item.consumables[i].value.ToString() + "\n";
+            }
+        }
+        else
+        {
+                selectedItemStatValues.text += selectedItem.item.point.ToString() + "\n";
         }
 
         useButton.SetActive(selectedItem.item.itemType == ItemType.Food || selectedItem.item.itemType == ItemType.Medicines);

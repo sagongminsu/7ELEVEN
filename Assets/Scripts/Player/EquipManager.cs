@@ -19,13 +19,22 @@ public class EquipManager : MonoBehaviour
         playerConditions = GetComponent<PlayerConditions>();
         playerController = GetComponent<PlayerController>();
     }
-    
+
     public void OnAttackInput(InputAction.CallbackContext context)
     {
         Debug.Log("공격");
-        if (context.phase == InputActionPhase.Performed && curEquip != null && playerController.canLook)
+
+        if (context.phase == InputActionPhase.Performed && playerController.canLook)
         {
-            curEquip.OnAttackInput(playerConditions);
+            if (curEquip != null)
+            {
+                curEquip.OnAttackInput(playerConditions);
+            }
+            else
+            {
+                Debug.LogWarning("현재 장착된 아이템이 없습니다.");
+                // 아이템이 없을 때의 처리 추가 가능
+            }
         }
     }
 

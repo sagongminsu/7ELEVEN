@@ -69,6 +69,7 @@ public class InteractionManager : MonoBehaviour
     {
         if (callbackContext.phase == InputActionPhase.Started && curInteractable != null)
         {
+            SoundManager.Instance.GetItemSound("GetItem", 1f);
             curInteractable.OnInteract();
             curInteractGameobject = null;
             curInteractable = null;

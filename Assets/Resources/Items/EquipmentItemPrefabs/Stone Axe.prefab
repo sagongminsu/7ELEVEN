@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8809343205261297006}
   - component: {fileID: 9033978484492635942}
   - component: {fileID: -6454716293200344146}
-  m_Layer: 8
+  m_Layer: 6
   m_Name: Stone Axe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -157,7 +157,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3290598117132601010, guid: c78b2f6da8c496044acf68bbb77bee45, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4009919533279016670, guid: c78b2f6da8c496044acf68bbb77bee45, type: 3}

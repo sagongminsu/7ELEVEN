@@ -25,7 +25,7 @@ public class EquipManager : MonoBehaviour
         Debug.Log("АјАн");
         if (context.phase == InputActionPhase.Performed && curEquip != null && playerController.canLook)
         {
-            curEquip.OnAttackInput();
+            curEquip.OnAttackInput(playerConditions);
         }
     }
 

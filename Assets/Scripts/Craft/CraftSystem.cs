@@ -47,12 +47,14 @@ public class CraftSystem : MonoBehaviour
                 Inventory.instance.ConsumptionItem(item3);
             }
             craftTxt.text = $"Completed {resultItem.name} Acount {recipe.resultCount}";
+            SoundManager.Instance.CraftAudio("Crafting", 1f);
             StartCoroutine(Alarm());
             Debug.Log("성공");
         }
         else
         {
             craftTxt.text = "There are not enough items in the inventory";
+            SoundManager.Instance.CraftAudio("Failed", 1f);
             StartCoroutine(Alarm());
             Debug.Log("자원없음");
         }

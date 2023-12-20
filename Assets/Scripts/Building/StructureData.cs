@@ -13,5 +13,5 @@ public class StructureData : ScriptableObject
     public GameObject m_Prefab;//건축물 프리펩
     public GameObject m_Prefab_B;//청사진 프리펩
 
-    public StructureRecipe[] items;//건설에 필요한 아이템 요구 개수 배열 (테스트용)
+    public StructureRecipe[] items;//건설에 필요한 아이템 요구 개수 배열
 }

@@ -10,24 +10,24 @@ public class BuildingManager : MonoBehaviour
 {
     static public BuildingManager instance;
 
-    public KeyCode m_BuildButton;
+    public KeyCode m_BuildButton;//건물 On, Off 버튼
 
-    public GameObject m_NameText;
-    public GameObject m_DescText;
-    public Image m_BuildingImage;
+    public GameObject m_NameText;//건물 이름 텍스트
+    public GameObject m_DescText;//설명 텍스트
+    public Image m_BuildingImage;//선택된 건물 아이콘을 출력할 이미지 오브젝트
 
-    private StructureData m_BuildingInfo;
-    private Camera m_Camera;
-    private Ray m_HorizontalRay;
-    private Ray m_VerticalRay;
-    private GameObject m_BluePrint;
-    private bool m_Construction;
-    private bool m_Toggle = false;
+    private StructureData m_BuildingInfo;//현재 선택한 건물 정보
+    private Camera m_Camera;//메인 카메라
+    private Ray m_HorizontalRay;//수평 레이
+    private Ray m_VerticalRay;//수직 레이
+    private GameObject m_BluePrint;//청사진 프리펩
+    private bool m_Construction;//건설 모드 bool
+    private bool m_Toggle = false;//Ui On, off 체크
     private float m_rotate = 0.0f;
 
     private void Awake()
     {
-        instance = this;
+        instance = this;//싱글톤
     }
 
     private void Start()
@@ -98,8 +98,6 @@ public class BuildingManager : MonoBehaviour
                 Destroy(m_BluePrint);//청사진 오브젝트 삭제
                 m_BluePrint = null;
             }
-
-
         }
     }
 
@@ -137,6 +135,22 @@ public class BuildingManager : MonoBehaviour
             m_Construction = true;//건설 모드를 키고 UI 숨기기
             ToggleUi();
         }
+    }
+
+    public bool RecipeCheck()
+    {
+        foreach(StructureRecipe item in m_BuildingInfo.items)
+        {
+            bool result;
+            result = Inventory.instance.HasItems(item.index, item.count);//충분한 아이템이 있을 경우, 참
+
+            if(!result)
+            {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     private void UpdateDesc()//가져온 건물 정보에 맞춰서 예시 이미지와 이름, 설명을 출력

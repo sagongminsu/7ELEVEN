@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_StructureName: Workbench
   m_Desc: This Is Workbench
-  m_Icon: {fileID: 21300000, guid: e37ee0b1cbe20c5458102626b95a6b7c, type: 3}
+  m_Icon: {fileID: 21300000, guid: a28158f63774f8040954451052a46777, type: 3}
   m_Prefab: {fileID: 4751309179195205155, guid: 405182fb1a70a9d4a8a4c06cae1e6b5f, type: 3}
   m_Prefab_B: {fileID: 4751309179195205155, guid: 10584ef2809535947b026839e795aec1, type: 3}
   items: []

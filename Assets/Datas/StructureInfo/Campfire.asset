@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_StructureName: Campfire
   m_Desc: This Is Campfire
-  m_Icon: {fileID: 21300000, guid: 8f28955d92038974a9b04aafaeea79b0, type: 3}
+  m_Icon: {fileID: 21300000, guid: 237109ef65955c74a967c18459a26845, type: 3}
   m_Prefab: {fileID: 8475171451159580080, guid: 6046a64e832cdad44ac9e18fe66d19f1, type: 3}
   m_Prefab_B: {fileID: 8475171451159580080, guid: 7cda75498ad43d245acf89c4249b0944, type: 3}
   items: []

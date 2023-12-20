@@ -50,29 +50,19 @@ public class SoundManager : MonoBehaviour
         switch (name)
         {
             case "Open":
-                craftAudioSource.clip = openSound;
-                craftAudioSource.volume = volume;
-                craftAudioSource.Play();
+                PlaySFX(craftAudioSource, openSound, volume);
                 break;
             case "Crafting":
-                craftAudioSource.clip = craftingSound;
-                craftAudioSource.volume = volume;
-                craftAudioSource.Play();
+                PlaySFX(craftAudioSource, craftingSound, volume);
                 break;
             case "Failed":
-                craftAudioSource.clip = failedSound;
-                craftAudioSource.volume = volume;
-                craftAudioSource.Play();
+                PlaySFX(craftAudioSource, failedSound, volume);
                 break;
             case "ButtonClickSound":
-                craftAudioSource.clip = buttonClickSound;
-                craftAudioSource.volume = volume;
-                craftAudioSource.Play();
+                PlaySFX(craftAudioSource, buttonClickSound, volume);
                 break;
             case "ButtonClickSoundFaile":
-                craftAudioSource.clip = buttonClickSoundFaile;
-                craftAudioSource.volume = volume;
-                craftAudioSource.Play();
+                PlaySFX(craftAudioSource, buttonClickSoundFaile, volume);
                 break;
             default:
                 Debug.LogWarning("해당하는 오디오 클립을 찾을 수 없습니다.");
@@ -85,14 +75,19 @@ public class SoundManager : MonoBehaviour
         switch (name)
         {
             case "GetItem":
-                interactableAudioSource.clip = getItemSound;
-                interactableAudioSource.volume = volume;
-                interactableAudioSource.Play();
+                PlaySFX(interactableAudioSource, getItemSound, volume);
                 break;
             default:
                 Debug.LogWarning("해당하는 오디오 클립을 찾을 수 없습니다.");
                 return;
         }
+    }
+
+    public void PlaySFX(AudioSource audioSource,AudioClip audioClip ,float voluem)
+    {
+        audioSource.clip = audioClip;
+        audioSource.volume = voluem;
+        audioSource.Play();
     }
 
 

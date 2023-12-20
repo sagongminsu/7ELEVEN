@@ -4950,6 +4950,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 10
   damageRate: 0.5
+  time: 0
 --- !u!136 &2268386609066501380
 CapsuleCollider:
   m_ObjectHideFlags: 0

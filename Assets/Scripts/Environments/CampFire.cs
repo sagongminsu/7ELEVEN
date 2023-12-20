@@ -14,6 +14,7 @@ public class CampFire : MonoBehaviour
         InvokeRepeating("DealDamage", 0, damageRate); // 지연실행 방법. -- 바로 실행하는데 damageRate 주기대로 실행하겠다는 의미.
     }
 
+
     private void DealDamage()
     {
         for (int i = 0; i < thingsToDamage.Count; i++)
@@ -34,7 +35,7 @@ public class CampFire : MonoBehaviour
     {
         if (other.gameObject.TryGetComponent(out IDamageable damagable))
         {
-            thingsToDamage.Add(damagable);
+            thingsToDamage.Remove(damagable);
         }
     }
 

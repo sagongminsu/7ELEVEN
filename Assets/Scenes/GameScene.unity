@@ -15032,8 +15032,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health:
     curValue: 0
-    maxValue: 10
-    startValue: 10
+    maxValue: 100
+    startValue: 100
     regenRate: 1
     decayRate: 0
     uiBar: {fileID: 238218458}
@@ -17813,7 +17813,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 1082661.9}
+  m_AnchoredPosition: {x: 0, y: 1100449.6}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1651688343

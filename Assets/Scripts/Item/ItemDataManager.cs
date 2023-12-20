@@ -98,7 +98,7 @@ public class ItemDataManager : MonoBehaviour
                             canStack = false,
                             maxStackAmount = 1,
                             dropObject = Resources.Load<GameObject>("Items/EquipmentItemPrefabs/" + values[1]),
-                            equipPrefab = Resources.Load<GameObject>("Items/Equips/" + values[1])
+                            equipPrefab = Resources.Load<GameObject>("Items/Equips/E_" + values[1])
                         };
                         result.Add((T)(object)newData);
                     }

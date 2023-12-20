@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class DayNightCycle : MonoBehaviour
 {
-    [Range(0.0f, 2.0f)]
+    [Range(0.0f, 60f)]
     public float time;
     public float fullDayLength;
-    public float startTime = 0.3f;
+    public float startTime = 0.2f;
     private float timeRate;
     public Vector3 noon;
+
+    
+
+
 
     [Header("Sun")]
     public Light sun;
@@ -21,40 +25,46 @@ public class DayNightCycle : MonoBehaviour
     public Gradient moonColor;
     public AnimationCurve moonIntensity;
 
+
+
+
     [Header("Other Lighting")]
     public AnimationCurve lightingIntensityMultiplier;
     public AnimationCurve reflectionIntensityMultiplier;
 
     private void Start()
     {
-        timeRate = 1.0f / fullDayLength;
+        timeRate = 0.3f / fullDayLength;
         time = startTime;
     }
 
     private void Update()
     {
-        time = (time + timeRate * Time.deltaTime) % 2.0f;
+        time = (time + timeRate * Time.deltaTime) % 60f;
 
-        UpdateLighting(sun, sunColor, sunIntensity);
-        UpdateLighting(moon, moonColor, moonIntensity);
+        UpdateLighting(sun, sunColor, sunIntensity, 30f);
+        UpdateLighting(moon, moonColor, moonIntensity, 30f);
 
         RenderSettings.ambientIntensity = lightingIntensityMultiplier.Evaluate(time);
         RenderSettings.reflectionIntensity = reflectionIntensityMultiplier.Evaluate(time);
-
     }
 
-    void UpdateLighting(Light lightSource, Gradient colorGradiant, AnimationCurve intensityCurve)
+    void UpdateLighting(Light lightSource, Gradient colorGradiant, AnimationCurve intensityCurve, float duration)
     {
         float intensity = intensityCurve.Evaluate(time);
 
-        lightSource.transform.eulerAngles = (time - (lightSource == sun ? 0.6f: 1.4f)) * noon * 4.0f;
+        lightSource.transform.eulerAngles = (time - (lightSource == sun ? 30f : 30f)) * noon * 4.0f;
         lightSource.color = colorGradiant.Evaluate(time);
         lightSource.intensity = intensity;
 
         GameObject go = lightSource.gameObject;
-        if (lightSource.intensity == 0 && go.activeInHierarchy)
+
+        // Check if it's time to activate or deactivate the light
+        if (time < duration && lightSource.intensity == 0 && go.activeInHierarchy)
             go.SetActive(false);
-        else if (lightSource.intensity > 0 && !go.activeInHierarchy)
+        else if (time >= duration && lightSource.intensity > 0 && !go.activeInHierarchy)
             go.SetActive(true);
     }
+
+
 }

@@ -828,6 +828,8 @@ MonoBehaviour:
   openSound: {fileID: 8300000, guid: f093901405ac247edaad5ef17f903a0e, type: 3}
   craftingSound: {fileID: 8300000, guid: 2e184fde3811e4795a73f3ce7e201a5c, type: 3}
   failedSound: {fileID: 8300000, guid: 6f38df999e1db46538a1bd5dc706b43a, type: 3}
+  buttonClickSound: {fileID: 8300000, guid: 0072dd13ef3ac4e68ac08295a28df10e, type: 3}
+  buttonClickSoundFaile: {fileID: 8300000, guid: 38db8e57c57fc4128936a857592590e1, type: 3}
   interactableAudioSource: {fileID: 172496525}
   getItemSound: {fileID: 8300000, guid: 55adc96e76ad94bfd823c89f8715b942, type: 3}
 --- !u!4 &80149792
@@ -17151,6 +17153,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 777402.25}
+  m_AnchoredPosition: {x: 0, y: 377123.38}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1651688343

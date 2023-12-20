@@ -27,6 +27,10 @@ public class SoundManager : MonoBehaviour
     public Coroutine MoveClipCoroutine;
 
 
+    [Header ("Jump")]
+    public AudioSource jumpAudioSource;
+    public AudioClip jumpSound;
+
     public static SoundManager Instance
     {
         get { return instance; }
@@ -81,6 +85,11 @@ public class SoundManager : MonoBehaviour
                 Debug.LogWarning("해당하는 오디오 클립을 찾을 수 없습니다.");
                 return;
         }
+    }
+
+    public void JumpSound()
+    {
+        PlaySFX(jumpAudioSource, jumpSound, 1f);
     }
 
     public void PlaySFX(AudioSource audioSource,AudioClip audioClip ,float voluem)

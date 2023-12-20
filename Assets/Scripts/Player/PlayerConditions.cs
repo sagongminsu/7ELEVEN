@@ -21,6 +21,7 @@ public class Condition
     public float decayRate;
     public Image uiBar;
 
+
     public void Add(float amount)
     {
         curValue = Mathf.Min(curValue + amount, maxValue);
@@ -42,26 +43,31 @@ public class PlayerConditions : MonoBehaviour, IDamageable
     public Condition health;
     public Condition hunger;
     public Condition stamina;
-    public Condition thirst;
+
+    public GameObject dieUI;
 
     public float noHungerHealthDecay;
 
     public UnityEvent onTakeDamage;
 
+    private PlayerController playerController;
     // Start is called before the first frame update
+    private void Awake()
+    {
+        playerController = GetComponent<PlayerController>();
+    }
+
     void Start()
     {
         health.curValue = health.startValue;
         hunger.curValue = hunger.startValue;
         stamina.curValue = stamina.startValue;
-        thirst.curValue = thirst.startValue;
     }
 
     // Update is called once per frame
     void Update()
     {
         hunger.Subtract(hunger.decayRate * Time.deltaTime);
-        thirst.Subtract(thirst.decayRate * Time.deltaTime);
 
         stamina.Add(stamina.regenRate * Time.deltaTime);
 
@@ -90,11 +96,6 @@ public class PlayerConditions : MonoBehaviour, IDamageable
         hunger.Add(amount);
     }
 
-    public void Drink(float amount)
-    {
-        thirst.Add(amount);
-    }
-
     public bool UseStamina(float amount)
     {
         if (stamina.curValue - amount < 0)
@@ -113,7 +114,14 @@ public class PlayerConditions : MonoBehaviour, IDamageable
 
     public void TakePhysicalDamage(int damage)
     {
+        if (health.curValue <= 0)
+        {
+            Time.timeScale = 0;
+            dieUI.SetActive(true);
+            playerController.ToggleCursor(true);
+
+        }
         health.Subtract(damage);
-        onTakeDamage?.Invoke();
+        onTakeDamage?.Invoke();        
     }
 }

@@ -16,7 +16,7 @@ public class NPC : MonoBehaviour, IDamageable
     public int health;
     public float walkSpeed;
     public float runSpeed;
-    public Item[] dropOnDeath;
+    public GameObject dropOnDeath;
 
     [Header("AI")]
     private AIState aiState;
@@ -183,7 +183,7 @@ public class NPC : MonoBehaviour, IDamageable
     {
         NavMeshHit hit;
         // 경로 상 가장 가까운 곳을 가지고 온다.
-        NavMesh.SamplePosition(transform.position + (Random.onUnitSphere) * Random.Range(minWanderDistance, maxWanderDistance), out hit, maxWanderDistance, NavMesh.AllAreas);
+        NavMesh.SamplePosition(transform.position + (Random.onUnitSphere * Random.Range(minWanderDistance, maxWanderDistance)), out hit, maxWanderDistance, NavMesh.AllAreas);
 
         int i = 0;
         while (Vector3.Distance(transform.position, hit.position) < detectDistance)
@@ -200,12 +200,12 @@ public class NPC : MonoBehaviour, IDamageable
     private Vector3 GetFleeLocation()
     {
         NavMeshHit hit;
-        NavMesh.SamplePosition(transform.position + (Random.onUnitSphere) * safeDistance, out hit, maxWanderDistance, NavMesh.AllAreas);
+        NavMesh.SamplePosition(transform.position + (Random.onUnitSphere * safeDistance), out hit, maxWanderDistance, NavMesh.AllAreas);
 
         int i = 0;
         while (GetDestinationAngle(hit.position) > 90 || playerDistance < safeDistance)
         {
-            NavMesh.SamplePosition(transform.position + (Random.onUnitSphere) * Random.Range(minWanderDistance, maxWanderDistance), out hit, maxWanderDistance, NavMesh.AllAreas);
+            NavMesh.SamplePosition(transform.position + (Random.onUnitSphere * safeDistance), out hit, maxWanderDistance, NavMesh.AllAreas);
             i++;
             if (i == 30)
                 break;
@@ -231,13 +231,15 @@ public class NPC : MonoBehaviour, IDamageable
 
     private void Die()
     {
-        for (int x = 0; x < dropOnDeath.Length; x++)
-        {
-            Instantiate(dropOnDeath[x].dropObject, transform.position + Vector3.up * 2, Quaternion.identity);
-        }
+        gameObject.GetComponent<NavMeshAgent>().speed = 0;
+        Destroy(gameObject.GetComponent<BoxCollider>());
+
+        Instantiate(dropOnDeath, transform.position + Vector3.up * 2, Quaternion.identity);
+
         // 죽는 애니메이션 추가
         animator.SetTrigger("Die");
-        // 죽는 모션 후 Destroy 함수실행
+
+        // 죽는 모션(5초) 후 DestroyObject 함수 실행
         Invoke("DestroyObject", 5);
     }
 
@@ -259,7 +261,5 @@ public class NPC : MonoBehaviour, IDamageable
         {
             meshRenderers[x].material.color = Color.white;
         }
-
-
     }
 }

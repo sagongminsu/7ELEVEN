@@ -66,7 +66,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -2931631193766622982, guid: f226223b3a11d2d4b980aaa520301583, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f226223b3a11d2d4b980aaa520301583, type: 3}
       propertyPath: m_Name
@@ -74,15 +74,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f226223b3a11d2d4b980aaa520301583, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 4790688033558502258, guid: f226223b3a11d2d4b980aaa520301583, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 9067237156114629464, guid: f226223b3a11d2d4b980aaa520301583, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -115,21 +115,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75171386b907bae4fb7a3dd49ab6d23e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemToGive:
-    index: 0
-    name: 
-    text: 
-    count: 0
-    point: 0
-    itemType: 0
-    itemIcon: {fileID: 0}
-    dropObject: {fileID: 0}
-    canStack: 0
-    maxStackAmount: 0
-    consumables: []
-    equipPrefab: {fileID: 0}
   quantityPerHit: 1
-  capacity: 0
+  capacity: 4
+  acount: 
+  size: 0
+  getChance: 0
+  itemSpwanChance: 64000000
+  randomMin: 02000000
+  randomMax: 05000000
+  dropObj:
+  - {fileID: 4140774597986965270, guid: 58cd8dc8c2359174baa15aa31e302c8b, type: 3}
 --- !u!64 &5603445163608562156
 MeshCollider:
   m_ObjectHideFlags: 0

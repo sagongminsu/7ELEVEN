@@ -13,6 +13,8 @@ public class EquipTool : Equip
     [Header("Resource Gathering")]
     public bool doesGatherResources;
 
+    public LayerMask resourceMask;
+
     [Header("Combat")]
     public bool doesDealDamage;
     public int damage;
@@ -43,17 +45,28 @@ public class EquipTool : Equip
     {
         attacking = false;
     }
+    bool CompareLayer(int layer, LayerMask layerMask)
+    {
+        return (layerMask.value & (1 << layer)) != 0;
+    }
 
     public void OnHit()
     {
+       
+
         Ray ray = camera.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
         RaycastHit hit;
 
         if (Physics.Raycast(ray, out hit, attackDistance))
         {
-            if (doesGatherResources && hit.collider.TryGetComponent(out Resource resource))
+            if (doesGatherResources && CompareLayer(hit.collider.gameObject.layer, resourceMask) && hit.collider.TryGetComponent(out Resource resource))
             {
+                resource.capacity -= damage;
                 resource.Gather(hit.point, hit.normal);
+            }
+            else
+            {
+                Debug.Log("매칭되지 않습니다.");
             }
 
             if (doesDealDamage && hit.collider.TryGetComponent(out IDamageable damageable))

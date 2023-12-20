@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7241451273190372564}
   - component: {fileID: 8644086947089967346}
   - component: {fileID: 3800570919539125068}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: PT_Fruit_Tree_01_green_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 106919524889594027}
   - component: {fileID: 3836690433792750388}
   - component: {fileID: 1733373731990040923}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: PT_Fruit_Tree_01_green_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -179,7 +179,7 @@ GameObject:
   - component: {fileID: 3872348102861754633}
   - component: {fileID: 5419736421178926993}
   - component: {fileID: 97943046091539197}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: PT_Fruit_Tree_01_green_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -262,7 +262,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6202554556412463737}
   - component: {fileID: 1173743132148022536}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: PT_Fruit_Tree_01_green
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -325,8 +325,7 @@ GameObject:
   - component: {fileID: 8063952956861990319}
   - component: {fileID: 8830262778359909288}
   - component: {fileID: -5136608077723145562}
-  - component: {fileID: 320890266548199499}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Resource_Tree
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -361,21 +360,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75171386b907bae4fb7a3dd49ab6d23e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemToGive:
-    index: 0
-    name: 
-    text: 
-    count: 0
-    point: 0
-    itemType: 0
-    itemIcon: {fileID: 0}
-    dropObject: {fileID: 0}
-    canStack: 0
-    maxStackAmount: 0
-    consumables: []
-    equipPrefab: {fileID: 0}
   quantityPerHit: 1
-  capacity: 0
+  capacity: 4
+  acount: 
+  size: 0
+  getChance: 0
+  itemSpwanChance: 6400000050000000
+  randomMin: 0200000001000000
+  randomMax: 0500000002000000
+  dropObj:
+  - {fileID: 6544734768900415561, guid: 101ee0da20ef7b248ab197efd648e171, type: 3}
+  - {fileID: 6770693702201976016, guid: 2d105206b17ddf64aaa835a773a9833b, type: 3}
 --- !u!64 &-5136608077723145562
 MeshCollider:
   m_ObjectHideFlags: 0

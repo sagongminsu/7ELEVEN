@@ -5,7 +5,9 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
+    int currentClipIndex = 0;
     private static SoundManager instance;
+    private Coroutine playNextClipCoroutine;
 
     [Header("Craft")]
     public AudioSource craftAudioSource;
@@ -18,6 +20,12 @@ public class SoundManager : MonoBehaviour
     [Header("InteractableSound")]
     public AudioSource interactableAudioSource;
     public AudioClip getItemSound;
+
+    [Header("MoveSound")]
+    public AudioSource moveAudioSource;
+    public AudioClip[] mopveAudioClip;
+    public Coroutine MoveClipCoroutine;
+
 
     public static SoundManager Instance
     {
@@ -84,6 +92,44 @@ public class SoundManager : MonoBehaviour
             default:
                 Debug.LogWarning("해당하는 오디오 클립을 찾을 수 없습니다.");
                 return;
+        }
+    }
+
+
+    private IEnumerator PlayNextClipCoroutine(AudioSource audioSource, AudioClip[] soundClips)
+    {
+        while (true)
+        {
+            if (currentClipIndex >= soundClips.Length)
+            {
+                currentClipIndex = 0;
+            }
+
+            audioSource.clip = soundClips[currentClipIndex];
+            audioSource.Play();
+
+            currentClipIndex++;
+
+            yield return new WaitForSeconds(0.5f);
+        }
+    }
+
+    public void StartPlayNextClip(AudioSource audioSource, AudioClip[] soundClips, bool isCheck)
+    {
+        if (isCheck)
+        {
+            if (playNextClipCoroutine == null)
+            {
+                playNextClipCoroutine = StartCoroutine(PlayNextClipCoroutine(audioSource, soundClips));
+            }
+        }
+        else
+        {
+            if (playNextClipCoroutine != null)
+            {
+                StopCoroutine(playNextClipCoroutine);
+                playNextClipCoroutine = null;
+            }
         }
     }
 }

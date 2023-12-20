@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: WoodenPallet
   m_EditorClassIdentifier: 
   m_StructureName: WoodenPallet
-  m_Desc: This Is Pallet
+  m_Desc: Wood 1
   m_Icon: {fileID: 21300000, guid: 98b19b56e7c70eb4b9e1d0ad0b9014fe, type: 3}
   m_Prefab: {fileID: 3308914722744996560, guid: 29abf24f5c3a0c346920490127e9b6d1, type: 3}
   m_Prefab_B: {fileID: 3308914722744996560, guid: 8e76707349dbeac4d8302e491b38d123, type: 3}
-  items: []
+  items:
+  - index: 101
+    count: 1

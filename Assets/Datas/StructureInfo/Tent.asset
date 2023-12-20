@@ -13,8 +13,12 @@ MonoBehaviour:
   m_Name: Tent
   m_EditorClassIdentifier: 
   m_StructureName: Tent
-  m_Desc: This is Tent
+  m_Desc: Stone 2, Wood 2
   m_Icon: {fileID: 21300000, guid: 60ad8687b240ec14db889b739e542cb1, type: 3}
   m_Prefab: {fileID: 3918036935182654285, guid: b5991b8efe7e0044888b9058f6d3119f, type: 3}
   m_Prefab_B: {fileID: 3918036935182654285, guid: 9e7c3ef9e4d9f264ba57ea607c3efb0c, type: 3}
-  items: []
+  items:
+  - index: 102
+    count: 2
+  - index: 101
+    count: 2

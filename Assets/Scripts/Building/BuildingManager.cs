@@ -151,13 +151,13 @@ public class BuildingManager : MonoBehaviour
             bool result;
             result = Inventory.instance.HasItems(item.index, item.count);//충분한 아이템이 있을 경우, 참
 
-            if(result)
+            if(!result)
             {
-                return true;
+                return false;
             }
         }
 
-        return false;
+        return true;
     }
 
     private void UpdateDesc()//가져온 건물 정보에 맞춰서 예시 이미지와 이름, 설명을 출력

@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: Ceiling
   m_EditorClassIdentifier: 
   m_StructureName: Ceiling
-  m_Desc: This Is Ceiling
+  m_Desc: Stone 1
   m_Icon: {fileID: 21300000, guid: 1a6e80fd40e5dd84ca7bcd554aa8a021, type: 3}
   m_Prefab: {fileID: 3324602579914464128, guid: 40c98e01e94b1df47a99a71b02a374b9, type: 3}
   m_Prefab_B: {fileID: 3324602579914464128, guid: eadc76936498f84498bd4215c3507c36, type: 3}
-  items: []
+  items:
+  - index: 102
+    count: 1

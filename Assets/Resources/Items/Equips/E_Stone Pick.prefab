@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8525642504189779094}
   - component: {fileID: -4672342110217169146}
   - component: {fileID: -2128858771422763351}
+  - component: {fileID: 8160775525817548872}
   m_Layer: 7
   m_Name: E_Stone Pick
   m_TagString: Untagged
@@ -76,6 +77,18 @@ MonoBehaviour:
     m_Bits: 2048
   doesDealDamage: 1
   damage: 2
+--- !u!114 &8160775525817548872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6124601198176270541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e334b1b5f8f18664aa1db6927cada331, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2441075936249142413
 PrefabInstance:
   m_ObjectHideFlags: 0

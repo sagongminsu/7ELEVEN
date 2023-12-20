@@ -50,17 +50,17 @@ public class PlayerController : MonoBehaviour
             playerMove = true;
             if (IsGrounded())
             {
-                SoundManager.Instance.StartPlayNextClip(SoundManager.Instance.moveAudioSource, SoundManager.Instance.mopveAudioClip, playerMove);
+                SoundManager.Instance.StartPlayNextClip(SoundManager.Instance.moveAudioSource, SoundManager.Instance.moveAudioClip, playerMove);
             }
             else
             {
-                SoundManager.Instance.StartPlayNextClip(SoundManager.Instance.moveAudioSource, SoundManager.Instance.mopveAudioClip, false);
+                SoundManager.Instance.StartPlayNextClip(SoundManager.Instance.moveAudioSource, SoundManager.Instance.moveAudioClip, false);
             }
         }
         else
         {
             playerMove = false;
-            SoundManager.Instance.StartPlayNextClip(SoundManager.Instance.moveAudioSource, SoundManager.Instance.mopveAudioClip, playerMove);
+            SoundManager.Instance.StartPlayNextClip(SoundManager.Instance.moveAudioSource, SoundManager.Instance.moveAudioClip, playerMove);
         }
 
     }

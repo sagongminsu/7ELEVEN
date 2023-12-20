@@ -23,13 +23,18 @@ public class SoundManager : MonoBehaviour
 
     [Header("MoveSound")]
     public AudioSource moveAudioSource;
-    public AudioClip[] mopveAudioClip;
+    public AudioClip[] moveAudioClip;
     public Coroutine MoveClipCoroutine;
 
 
     [Header ("Jump")]
     public AudioSource jumpAudioSource;
     public AudioClip jumpSound;
+
+    [Header("Swing")]
+    public AudioSource swingAudioSource;
+    public AudioClip[] swingSound;
+    public int swingNum = 0;
 
     public static SoundManager Instance
     {
@@ -48,7 +53,6 @@ public class SoundManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
     public void CraftAudio(string name, float volume = 1.0f)
     {
         switch (name)
@@ -87,11 +91,20 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    public void JumpSound()
+    public void JumpSound(float volume = 1.0f)
     {
-        PlaySFX(jumpAudioSource, jumpSound, 1f);
+            PlaySFX(swingAudioSource, jumpSound, volume);
     }
 
+    public void SwingSound(float volume = 1.0f)
+    {
+        PlaySFX(swingAudioSource, swingSound[swingNum], volume);
+        swingNum += 1;
+            if(swingNum >= swingSound.Length)
+            {
+                swingNum = 0;
+            }
+    }
     public void PlaySFX(AudioSource audioSource,AudioClip audioClip ,float voluem)
     {
         audioSource.clip = audioClip;

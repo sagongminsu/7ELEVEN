@@ -38,6 +38,7 @@ public class NPC : MonoBehaviour, IDamageable
     private float playerDistance;
 
     public float fieldOfView = 120f;
+    private bool isDie = false;
 
     private NavMeshAgent agent;
     private Animator animator;
@@ -103,7 +104,7 @@ public class NPC : MonoBehaviour, IDamageable
         {
             // 실제 공격하는 부분
             agent.isStopped = true;
-            if (Time.time - lastAttackTime > attackRate) // 이 시간 안에서 공격 진행
+            if (Time.time - lastAttackTime > attackRate && !isDie) // 이 시간 안에서 공격 진행
             {
                 lastAttackTime = Time.time;
                 PlayerController.instance.GetComponent<IDamageable>().TakePhysicalDamage(damage); // 데미지 전달
@@ -231,6 +232,7 @@ public class NPC : MonoBehaviour, IDamageable
 
     private void Die()
     {
+        isDie = true;
         gameObject.GetComponent<NavMeshAgent>().speed = 0;
         Destroy(gameObject.GetComponent<BoxCollider>());
 

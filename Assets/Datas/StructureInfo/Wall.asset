@@ -12,8 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db0df947a4a2505419c9fe4be54da5da, type: 3}
   m_Name: Wall
   m_EditorClassIdentifier: 
-  m_StructureName: Workbench
-  m_Desc: This Is Workbench
-  m_Icon: {fileID: 21300000, guid: e37ee0b1cbe20c5458102626b95a6b7c, type: 3}
-  m_Prefab: {fileID: 4751309179195205155, guid: 405182fb1a70a9d4a8a4c06cae1e6b5f, type: 3}
-  items: []
+  m_StructureName: Wall
+  m_Desc: This Is Wall
+  m_Icon: {fileID: 21300000, guid: 69f6a3be493f6d049ba4407a8a19cf00, type: 3}
+  m_Prefab: {fileID: 1357872678273144352, guid: 1ac936b0dbe1cb648b1d39340314dd1e, type: 3}
+  m_Prefab_B: {fileID: 1357872678273144352, guid: 45c01a6e73a489c419da5301fd75c6e2, type: 3}
+  items:
+  - index: 100
+    count: 1

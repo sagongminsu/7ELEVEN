@@ -12,6 +12,8 @@ public class SoundManager : MonoBehaviour
     public AudioClip openSound;
     public AudioClip craftingSound;
     public AudioClip failedSound;
+    public AudioClip buttonClickSound;
+    public AudioClip buttonClickSoundFaile;
 
     [Header("InteractableSound")]
     public AudioSource interactableAudioSource;
@@ -51,6 +53,16 @@ public class SoundManager : MonoBehaviour
                 break;
             case "Failed":
                 craftAudioSource.clip = failedSound;
+                craftAudioSource.volume = volume;
+                craftAudioSource.Play();
+                break;
+            case "ButtonClickSound":
+                craftAudioSource.clip = buttonClickSound;
+                craftAudioSource.volume = volume;
+                craftAudioSource.Play();
+                break;
+            case "ButtonClickSoundFaile":
+                craftAudioSource.clip = buttonClickSoundFaile;
                 craftAudioSource.volume = volume;
                 craftAudioSource.Play();
                 break;

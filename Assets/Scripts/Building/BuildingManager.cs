@@ -1,4 +1,6 @@
+using System.Net;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -64,10 +66,18 @@ public class BuildingManager : MonoBehaviour
             {
                 m_Object.transform.Rotate(0, m_rotate, 0);//휠 돌린 방향으로 회전
                 m_rotate = 0.0f;
-                m_HorizontalRay = m_Camera.ScreenPointToRay(Input.mousePosition);//카메라 기준 앞으로 수평 레이 생성
-                m_VerticalRay = new Ray(m_HorizontalRay.origin + m_HorizontalRay.direction * 5, new Vector3(0, -1, 0));//수평 레이 끝 부분에서 수직 레이 생성 
+                m_HorizontalRay = m_Camera.ScreenPointToRay(Input.mousePosition);//카메라 기준 정면으로 레이 생성
+                m_VerticalRay = new Ray(m_HorizontalRay.origin + m_HorizontalRay.direction * 5, new Vector3(0, -1, 0));//정면 레이 끝 부분에서 수직 레이 생성 
 
                 RaycastHit hit;
+
+                if(Physics.Raycast(m_HorizontalRay, out hit, 3.0f))
+                {
+                    if(hit.transform.gameObject.name == "Wall")
+                    {
+                        Debug.Log("This is Wall");
+                    }
+                }
 
                 if (Physics.Raycast(m_VerticalRay, out hit, 10.0f))//레이와 충돌한 오브젝트에 접근
                 {
@@ -119,8 +129,11 @@ public class BuildingManager : MonoBehaviour
 
     public void ConstructionMode()
     {
-        m_Construction = true;//건설 모드를 키고 UI 숨기기
-        ToggleUi();
+        if(m_BuildingInfo != null)//선택한 건축물이 없을 때는 비활성화
+        {
+            m_Construction = true;//건설 모드를 키고 UI 숨기기
+            ToggleUi();
+        }
     }
 
     private void UpdateDesc()//가져온 건물 정보에 맞춰서 예시 이미지와 이름, 설명을 출력

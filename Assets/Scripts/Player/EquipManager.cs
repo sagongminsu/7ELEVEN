@@ -22,7 +22,7 @@ public class EquipManager : MonoBehaviour
 
     public void OnAttackInput(InputAction.CallbackContext context)
     {
-        Debug.Log("공격");
+        //Debug.Log("공격");
 
         if (context.phase == InputActionPhase.Performed && playerController.canLook)
         {

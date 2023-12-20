@@ -16,4 +16,5 @@ MonoBehaviour:
   m_Desc: This Is Wall
   m_Icon: {fileID: 21300000, guid: 7c391adc57fb47043b13d9c88a7d2446, type: 3}
   m_Prefab: {fileID: 1357872678273144352, guid: 1ac936b0dbe1cb648b1d39340314dd1e, type: 3}
+  m_Prefab_B: {fileID: 1357872678273144352, guid: 45c01a6e73a489c419da5301fd75c6e2, type: 3}
   items: []

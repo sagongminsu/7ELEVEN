@@ -59,8 +59,7 @@ public class BuildingManager : MonoBehaviour
 
             if (m_Object == null)
             {
-                m_Object = Instantiate(m_BuildingInfo.m_Prefab);//건축물 생성
-
+                m_Object = Instantiate(m_BuildingInfo.m_Prefab_B);//건축물 청사진 생성
             }
             else
             {
@@ -91,8 +90,12 @@ public class BuildingManager : MonoBehaviour
             if (Input.GetMouseButtonDown(0))//클릭 버튼을 눌렀을 경우
             {
                 //해당 위치에 건축물을 고정시킴
+                GameObject temp = Instantiate(m_BuildingInfo.m_Prefab);
+                temp.transform.position = m_Object.transform.position;
+                temp.transform.rotation = m_Object.transform.rotation;
                 m_Object.transform.tag = "Structure";//구조물 태그로 변경
                 m_Construction = false;//건설모드 해제
+                Destroy(m_Object);
                 m_Object = null;
             }
 

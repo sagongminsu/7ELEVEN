@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: WoodenFence
   m_EditorClassIdentifier: 
   m_StructureName: WoodenFence
-  m_Desc: This is Fence
+  m_Desc: Wood 1
   m_Icon: {fileID: 21300000, guid: d519403bda9fbc842b61315c7c04612c, type: 3}
   m_Prefab: {fileID: 1025681519537117646, guid: aa99a810914c5b84b9bc5d51f95dd05c, type: 3}
   m_Prefab_B: {fileID: 1025681519537117646, guid: dc00b8d093ee1cd4582332c742bdcf79, type: 3}
-  items: []
+  items:
+  - index: 101
+    count: 1

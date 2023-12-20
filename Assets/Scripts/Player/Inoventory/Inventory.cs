@@ -129,10 +129,15 @@ public class Inventory : MonoBehaviour
         Instantiate(item.dropObject, dropPosition.position, Quaternion.Euler(Vector3.one * Random.value * 360f));
     }
 
-    void UpdateUI()
+    public void UpdateUI()
     {
         for (int i = 0; i < slots.Length; i++)
         {
+            if (slots[i].quantity <= 0)//갯수가 0 이하인 아이템들은 인벤토리에서 제거
+            {
+                slots[i].item = null;
+            }
+
             if (slots[i].item != null)
                 uiSlots[i].Set(slots[i]);
             else
@@ -300,10 +305,6 @@ public class Inventory : MonoBehaviour
         UpdateUI();
     }
 
-    public void RemoveItem(Item item)
-    {
-    }
-
     public void ConsumptionItem(Item item)
     {
         ItemSlot slot = FindItemSlot(item);
@@ -348,11 +349,11 @@ public class Inventory : MonoBehaviour
 
     public bool HasItems(int index, int quantity)//아이템 코드로 아이템을 갖고 있는지 체크하는 함수
     {
-        foreach (ItemSlot slot in slots)
+        foreach (ItemSlot slot in slots)//인벤토리 탐색
         {
             if (slot.item != null)
             {
-                if (slot.item.index == index && slot.item.count >= quantity)//필요한 개수와 아이템 코드가 충족될 경우 참 리턴
+                if (slot.item.index == index && slot.quantity >= quantity)//필요한 개수와 아이템 코드가 충족될 경우 참 리턴
                 {
                     return true;
                 }
@@ -360,5 +361,21 @@ public class Inventory : MonoBehaviour
         }
 
         return false;
+    }
+
+    public void RemoveItem(int index, int quantity)//특정 아이템을 갯수만큼 인벤토리에서 감소
+    {
+        foreach (ItemSlot slot in slots)//인벤토리 탐색
+        {
+            if (slot.item != null)
+            {
+                if (slot.item.index == index)//찾으려는 아이템 코드가 일치하는 경우,
+                {
+                    slot.quantity -= quantity;//갯수 감소
+                    
+                    break;
+                }
+            }
+        }
     }
 }

@@ -132,6 +132,13 @@ public class BuildingManager : MonoBehaviour
     {
         if(m_BuildingInfo != null)//선택한 건축물이 없을 때는 비활성화
         {
+
+            foreach (StructureRecipe item in m_BuildingInfo.items)
+            {
+               Inventory.instance.RemoveItem(item.index, item.count);//레시피대로 인벤토리 안 아이템 감소
+            }
+
+            Inventory.instance.UpdateUI();//인벤토리 슬롯 업데이트
             m_Construction = true;//건설 모드를 키고 UI 숨기기
             ToggleUi();
         }

@@ -70,11 +70,6 @@ public class PlayerConditions : MonoBehaviour, IDamageable
             health.Subtract(noHungerHealthDecay * Time.deltaTime);
         }
 
-        if (thirst.curValue == 0.0f)
-        {
-            hunger.Subtract(hunger.decayRate * Time.deltaTime * 2);
-        }
-
         if (health.curValue == 0.0f)
         {
             Die();
@@ -83,7 +78,6 @@ public class PlayerConditions : MonoBehaviour, IDamageable
         health.uiBar.fillAmount = health.GetPercentage();
         hunger.uiBar.fillAmount = hunger.GetPercentage();
         stamina.uiBar.fillAmount = stamina.GetPercentage();
-        thirst.uiBar.fillAmount = thirst.GetPercentage();
     }
 
     public void Heal(float amount)

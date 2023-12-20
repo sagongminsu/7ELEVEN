@@ -231,11 +231,14 @@ public class NPC : MonoBehaviour, IDamageable
 
     private void Die()
     {
+        gameObject.GetComponent<NavMeshAgent>().speed = 0;
+        Destroy(gameObject.GetComponent<BoxCollider>());
+
         Instantiate(dropOnDeath, transform.position + Vector3.up * 2, Quaternion.identity);
-        
+
         // 죽는 애니메이션 추가
         animator.SetTrigger("Die");
-        
+
         // 죽는 모션(5초) 후 DestroyObject 함수 실행
         Invoke("DestroyObject", 5);
     }

@@ -15,6 +15,9 @@ public class ItemSlot
 
 public class Inventory : MonoBehaviour
 {
+    public AudioSource openCloseSound;
+    public AudioClip openSound;
+
     public ItemSlotUI[] uiSlots;
     public ItemSlot[] slots;
 
@@ -86,6 +89,11 @@ public class Inventory : MonoBehaviour
             inventoryWindow.SetActive(true);
             onOpenInventory?.Invoke();
             controller.ToggleCursor(true);
+            if (openSound != null && openCloseSound != null)
+            {
+                openCloseSound.clip = openSound;
+                openCloseSound.Play();
+            }
         }
     }
 

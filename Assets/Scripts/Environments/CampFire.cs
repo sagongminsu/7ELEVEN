@@ -11,7 +11,7 @@ public class CampFire : MonoBehaviour
 
     private void Start()
     {
-        InvokeRepeating("DealDamage", 0, damageRate); // Áö¿¬½ÇÇà ¹æ¹ý. -- ¹Ù·Î ½ÇÇàÇÏ´Âµ¥ damageRate ÁÖ±â´ë·Î ½ÇÇàÇÏ°Ú´Ù´Â ÀÇ¹Ì.
+        InvokeRepeating("DealDamage", 0, damageRate); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½. -- ï¿½Ù·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´Âµï¿½ damageRate ï¿½Ö±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°Ú´Ù´ï¿½ ï¿½Ç¹ï¿½.
     }
 
 

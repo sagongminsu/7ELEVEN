@@ -132,6 +132,13 @@ public class BuildingManager : MonoBehaviour
     {
         if(m_BuildingInfo != null)//선택한 건축물이 없을 때는 비활성화
         {
+
+            foreach (StructureRecipe item in m_BuildingInfo.items)
+            {
+               Inventory.instance.RemoveItem(item.index, item.count);//레시피대로 인벤토리 안 아이템 감소
+            }
+
+            Inventory.instance.UpdateUI();//인벤토리 슬롯 업데이트
             m_Construction = true;//건설 모드를 키고 UI 숨기기
             ToggleUi();
         }
@@ -144,13 +151,13 @@ public class BuildingManager : MonoBehaviour
             bool result;
             result = Inventory.instance.HasItems(item.index, item.count);//충분한 아이템이 있을 경우, 참
 
-            if(!result)
+            if(result)
             {
-                return false;
+                return true;
             }
         }
 
-        return true;
+        return false;
     }
 
     private void UpdateDesc()//가져온 건물 정보에 맞춰서 예시 이미지와 이름, 설명을 출력

@@ -7,7 +7,7 @@ public class DayNightCycle : MonoBehaviour
     [Range(0.0f, 1.0f)]
     public float time;
     public float fullDayLength;
-    public float startTime = 0.4f;
+    public float startTime = 0.3f;
     private float timeRate;
     public Vector3 noon;
 
@@ -47,7 +47,7 @@ public class DayNightCycle : MonoBehaviour
     {
         float intensity = intensityCurve.Evaluate(time);
 
-        lightSource.transform.eulerAngles = (time - (lightSource == sun ? 0.25f : 0.75f)) * noon * 4.0f;
+        lightSource.transform.eulerAngles = (time - (lightSource == sun ? 0.25f : 0.75f)) * noon * 0.2f;
         lightSource.color = colorGradiant.Evaluate(time);
         lightSource.intensity = intensity;
 

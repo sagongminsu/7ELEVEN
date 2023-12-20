@@ -12342,18 +12342,18 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0.3
       value: -0
-      inSlope: 0
+      inSlope: -0.6666666
       outSlope: 0
-      tangentMode: 136
+      tangentMode: 5
       weightedMode: 0
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 0.7
       value: -0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 136
+      inSlope: -0
+      outSlope: 0.6666666
+      tangentMode: 69
       weightedMode: 0
       inWeight: 0.33333334
       outWeight: 0.33333334
@@ -14737,8 +14737,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02d05696452ee054b8f0535c10781c81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openCloseSound: {fileID: 1407158951}
-  openSound: {fileID: 8300000, guid: db3bcb092ae9f7b4c9f4180d7d0bc27b, type: 3}
+  openCloseSound: {fileID: 0}
+  openSound: {fileID: 0}
   uiSlots:
   - {fileID: 791800257}
   - {fileID: 1898876667}
@@ -16133,7 +16133,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+  m_Color: {r: 0.17059557, g: 0, b: 0.4528302, a: 1}
   m_Intensity: 0.2
   m_Range: 10
   m_SpotAngle: 30
@@ -16143,7 +16143,7 @@ Light:
     m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 1
+    m_Strength: 0.5
     m_Bias: 0.05
     m_NormalBias: 0.4
     m_NearPlane: 0.2
@@ -16191,14 +16191,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1518670431}
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
+  m_LocalRotation: {x: -0.4082179, y: 0.2345698, z: -0.10938169, w: -0.8754261}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1227478482}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1545535235
 GameObject:
   m_ObjectHideFlags: 0

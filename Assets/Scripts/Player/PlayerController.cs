@@ -48,12 +48,19 @@ public class PlayerController : MonoBehaviour
         if (curMovementInput != Vector2.zero)
         {
             playerMove = true;
-            SoundManager.Instance.StartPlayNextClip(SoundManager.Instance.moveAudioSource, SoundManager.Instance.mopveAudioClip, playerMove);
+            if (IsGrounded())
+            {
+                SoundManager.Instance.StartPlayNextClip(SoundManager.Instance.moveAudioSource, SoundManager.Instance.moveAudioClip, playerMove);
+            }
+            else
+            {
+                SoundManager.Instance.StartPlayNextClip(SoundManager.Instance.moveAudioSource, SoundManager.Instance.moveAudioClip, false);
+            }
         }
         else
         {
             playerMove = false;
-            SoundManager.Instance.StartPlayNextClip(SoundManager.Instance.moveAudioSource, SoundManager.Instance.mopveAudioClip, playerMove);
+            SoundManager.Instance.StartPlayNextClip(SoundManager.Instance.moveAudioSource, SoundManager.Instance.moveAudioClip, playerMove);
         }
 
     }
@@ -109,6 +116,7 @@ public class PlayerController : MonoBehaviour
             if (IsGrounded())
             {
                 _rigidbody.AddForce(Vector2.up * jumpForce, ForceMode.Impulse);
+                SoundManager.Instance.JumpSound();
             }
             
         }

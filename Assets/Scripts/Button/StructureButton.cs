@@ -1,19 +1,19 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class StructureButton : MonoBehaviour
+public class StructureButton : MonoBehaviour//ê±´ì„¤ UI ì•ˆ, ìŠ¤í¬ë¡¤ ë·°ì— ìˆëŠ” ë²„íŠ¼ì…ë‹ˆë‹¤.
 {
-    public StructureData m_Data;//°Ç¹° Á¤º¸(ScriptableObject)
+    public StructureData m_Data;//ê±´ë¬¼ ì •ë³´(ScriptableObject)
 
     public void Start()
     {
-        gameObject.GetComponent<Image>().sprite = m_Data.m_Icon;//°Ç¹° ¾ÆÀÌÄÜÀ¸·Î ÀÌ¹ÌÁö º¯°æ
+        gameObject.GetComponent<Image>().sprite = m_Data.m_Icon;//ê±´ë¬¼ ì•„ì´ì½˜ìœ¼ë¡œ ì´ë¯¸ì§€ ë³€ê²½
     }
 
-    public void OnClick()//¹öÆ°À» ´­·¶À» ¶§, BuildingManager¿¡ °ÇÃà¹° Á¤º¸ Àü´Ş
+    public void OnClick()//ë²„íŠ¼ì„ ëˆŒë €ì„ ë•Œ, BuildingManagerì— ê±´ì¶•ë¬¼ ì •ë³´ ì „ë‹¬
     {
         BuildingManager.instance.SelectBuilding(ref m_Data);
     }

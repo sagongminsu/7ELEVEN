@@ -1,12 +1,12 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ConstructButton : MonoBehaviour//°Ç¼³ÇÏ±â ¹öÆ°
+public class ConstructButton : MonoBehaviour//ê±´ì„¤í•˜ê¸° ë²„íŠ¼
 {
 
     public void OnClick()
     {
-        BuildingManager.instance.ConstructionMode();//°Ç¼³ ¹öÆ°À» ´­·¶À» °æ¿ì °Ç¼³¸ğµå ON
+        BuildingManager.instance.ConstructionMode();//ê±´ì„¤ ë²„íŠ¼ì„ ëˆŒë €ì„ ê²½ìš° ê±´ì„¤ëª¨ë“œ ON
     }
 }

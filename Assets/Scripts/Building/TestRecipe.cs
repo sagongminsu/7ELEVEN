@@ -1,7 +1,7 @@
-using System;
+ï»¿using System;
 
 [Serializable]
-public struct StructureRecipe//Å×½ºÆ®¿ë
+public struct StructureRecipe//í…ŒìŠ¤íŠ¸ìš©
 {
     public int index;
     public int count;

@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,11 +7,11 @@ using UnityEngine;
 
 public class StructureData : ScriptableObject
 {
-    public string m_StructureName;//°Ç¹° ÀÌ¸§
-    public string m_Desc;//°Ç¹° ¼³¸í
-    public Sprite m_Icon;//°Ç¹° ¾ÆÀÌÄÜ ÀÌ¹ÌÁö
-    public GameObject m_Prefab;//°ÇÃà¹° ÇÁ¸®Æé
-    public GameObject m_Prefab_B;//Ã»»çÁø ÇÁ¸®Æé
+    public string m_StructureName;//ê±´ë¬¼ ì´ë¦„
+    public string m_Desc;//ê±´ë¬¼ ì„¤ëª…
+    public Sprite m_Icon;//ê±´ë¬¼ ì•„ì´ì½˜ ì´ë¯¸ì§€
+    public GameObject m_Prefab;//ê±´ì¶•ë¬¼ í”„ë¦¬í©
+    public GameObject m_Prefab_B;//ì²­ì‚¬ì§„ í”„ë¦¬í©
 
-    public StructureRecipe[] items;//°Ç¼³¿¡ ÇÊ¿äÇÑ ¾ÆÀÌÅÛ ¿ä±¸ °³¼ö ¹è¿­ (Å×½ºÆ®¿ë)
+    public StructureRecipe[] items;//ê±´ì„¤ì— í•„ìš”í•œ ì•„ì´í…œ ìš”êµ¬ ê°œìˆ˜ ë°°ì—´ (í…ŒìŠ¤íŠ¸ìš©)
 }

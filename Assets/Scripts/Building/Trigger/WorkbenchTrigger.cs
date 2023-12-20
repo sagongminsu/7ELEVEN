@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,7 +7,7 @@ public class WorkbenchTrigger : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
 
-        if (other.gameObject.tag == "Player")//Ãæµ¹Ã¼°¡ ÇÃ·¹ÀÌ¾îÀÏ °æ¿ì
+        if (other.gameObject.tag == "Player")//ì¶©ëŒì²´ê°€ í”Œë ˆì´ì–´ì¼ ê²½ìš°
         {
             PlayerController.instance.isInBlacksmithArea = true;
         }
@@ -16,7 +16,7 @@ public class WorkbenchTrigger : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
        
-        if (other.gameObject.tag == "Player")//Ãæµ¹Ã¼°¡ ÇÃ·¹ÀÌ¾îÀÏ °æ¿ì
+        if (other.gameObject.tag == "Player")//ì¶©ëŒì²´ê°€ í”Œë ˆì´ì–´ì¼ ê²½ìš°
         {
             PlayerController.instance.isInBlacksmithArea = false;
         }

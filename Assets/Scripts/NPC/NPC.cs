@@ -238,7 +238,7 @@ public class NPC : MonoBehaviour, IDamageable
         // 죽는 애니메이션 추가
         animator.SetTrigger("Die");
         // 죽는 모션 후 Destroy 함수실행
-        Invoke("DestroyObject", 7);
+        Invoke("DestroyObject", 5);
     }
 
     private void DestroyObject()

@@ -69,7 +69,7 @@ public class EquipTool : Equip
                 Debug.Log("매칭되지 않습니다.");
             }
 
-            if (doesDealDamage && hit.collider.TryGetComponent(out IDamageable damageable))
+            if (doesDealDamage && CompareLayer(hit.collider.gameObject.layer, resourceMask) && hit.collider.TryGetComponent(out IDamageable damageable))
             {
                 damageable.TakePhysicalDamage(damage);
             }

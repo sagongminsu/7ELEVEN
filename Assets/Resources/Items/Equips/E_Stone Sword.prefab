@@ -50,6 +50,9 @@ MonoBehaviour:
   attackDistance: 1
   useStamina: 10
   doesGatherResources: 0
+  resourceMask:
+    serializedVersion: 2
+    m_Bits: 4096
   doesDealDamage: 1
   damage: 10
 --- !u!95 &-2024359803938258669

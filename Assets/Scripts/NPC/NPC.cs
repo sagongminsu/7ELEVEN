@@ -229,7 +229,6 @@ public class NPC : MonoBehaviour, IDamageable
         }
         StartCoroutine(DamageFlash());
     }
-
     private void Die()
     {
         isDie = true;

@@ -1,12 +1,12 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GoMainButton : MonoBehaviour
+public class GameStartButton : MonoBehaviour
 {
     public void OnClick()
     {
-        SceneManager.LoadScene("StartScene");
+        SceneManager.LoadScene("GameScene");
     }
 }

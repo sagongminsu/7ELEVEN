@@ -1491,6 +1491,8 @@ MonoBehaviour:
   normalMenu: {fileID: 0}
   cookMenu: {fileID: 0}
   blacksmithMenu: {fileID: 0}
+  alarmBox: {fileID: 0}
+  alarmTxt: {fileID: 0}
 --- !u!114 &1040110593
 MonoBehaviour:
   m_ObjectHideFlags: 0

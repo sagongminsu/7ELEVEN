@@ -97,7 +97,8 @@ public class ItemDataManager : MonoBehaviour
                             itemIcon = Resources.Load<Sprite>("Items/ItemIcon/Equipment/" + values[0]),
                             canStack = false,
                             maxStackAmount = 1,
-                            dropObject = Resources.Load<GameObject>("Items/EquipmentItemPrefabs/" + values[1])
+                            dropObject = Resources.Load<GameObject>("Items/EquipmentItemPrefabs/" + values[1]),
+                            equipPrefab = Resources.Load<GameObject>("Items/Equips/" + values[1])
                         };
                         result.Add((T)(object)newData);
                     }

@@ -45,7 +45,7 @@ public class EquipManager : MonoBehaviour
 
         if (equipmentItem != null)
         {
-            GameObject equipPrefab = equipmentItem.dropObject;
+            GameObject equipPrefab = equipmentItem.equipPrefab;
             curEquip = Instantiate(equipPrefab, equipParent).GetComponent<Equip>();
         }
 

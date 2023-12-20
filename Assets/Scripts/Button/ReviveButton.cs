@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ReviveButton : MonoBehaviour
 {
+
     public void OnClick()
     {
         Debug.Log("Revive");

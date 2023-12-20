@@ -22,7 +22,7 @@ public class EquipManager : MonoBehaviour
 
     public void OnAttackInput(InputAction.CallbackContext context)
     {
-        Debug.Log("공격");
+        //Debug.Log("공격");
 
         if (context.phase == InputActionPhase.Performed && playerController.canLook)
         {
@@ -45,7 +45,7 @@ public class EquipManager : MonoBehaviour
 
         if (equipmentItem != null)
         {
-            GameObject equipPrefab = equipmentItem.dropObject;
+            GameObject equipPrefab = equipmentItem.equipPrefab;
             curEquip = Instantiate(equipPrefab, equipParent).GetComponent<Equip>();
         }
 

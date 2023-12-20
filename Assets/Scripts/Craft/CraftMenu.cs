@@ -47,6 +47,7 @@ public class CraftMenu : MonoBehaviour
 
         public void OnNormalMenu()
     {
+        SoundManager.Instance.CraftAudio("ButtonClickSound", 1f);
         mainMenu.SetActive(false);
         cookMenu.SetActive(false);
         normalMenu.SetActive(true);
@@ -57,6 +58,7 @@ public class CraftMenu : MonoBehaviour
     {
         if (PlayerController.instance.isInCookArea)
         {
+            SoundManager.Instance.CraftAudio("ButtonClickSound", 1f);
             mainMenu.SetActive(false);
             cookMenu.SetActive(true);
             normalMenu.SetActive(false);
@@ -64,6 +66,7 @@ public class CraftMenu : MonoBehaviour
         }
         else
         {
+            SoundManager.Instance.CraftAudio("ButtonClickSoundFaile", 1f);
             alarmTxt.text = "Need Fire";
             StartCoroutine(Alarm());
             Debug.Log("Need Fire");
@@ -74,6 +77,7 @@ public class CraftMenu : MonoBehaviour
     {
         if (PlayerController.instance.isInBlacksmithArea)
         {
+            SoundManager.Instance.CraftAudio("ButtonClickSound", 1f);
             mainMenu.SetActive(false);
             cookMenu.SetActive(false);
             normalMenu.SetActive(false);
@@ -81,6 +85,7 @@ public class CraftMenu : MonoBehaviour
         }
         else
         {
+            SoundManager.Instance.CraftAudio("ButtonClickSoundFaile", 1f);
             alarmTxt.text = "Need Warkbanch";
             StartCoroutine(Alarm());
             Debug.Log("Need Warkbanch");
@@ -89,6 +94,7 @@ public class CraftMenu : MonoBehaviour
 
     public void ReturnMainMenu()
     {
+        SoundManager.Instance.CraftAudio("ButtonClickSound", 1f);
         mainMenu.SetActive(true);
         cookMenu.SetActive(false);
         normalMenu.SetActive(false);

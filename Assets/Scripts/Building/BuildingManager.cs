@@ -1,4 +1,6 @@
+ï»¿using System.Net;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,122 +10,150 @@ public class BuildingManager : MonoBehaviour
 {
     static public BuildingManager instance;
 
-    public KeyCode m_BuildButton;
+    public KeyCode m_BuildButton;//ê±´ë¬¼ On, Off ë²„íŠ¼
 
-    public GameObject m_NameText;
-    public GameObject m_DescText;
-    public Image m_BuildingImage;
+    public GameObject m_NameText;//ê±´ë¬¼ ì´ë¦„ í…ìŠ¤íŠ¸
+    public GameObject m_DescText;//ì„¤ëª… í…ìŠ¤íŠ¸
+    public Image m_BuildingImage;//ì„ íƒëœ ê±´ë¬¼ ì•„ì´ì½˜ì„ ì¶œë ¥í•  ì´ë¯¸ì§€ ì˜¤ë¸Œì íŠ¸
 
-    private StructureData m_BuildingInfo;
-    private Camera m_Camera;
-    private Ray m_HorizontalRay;
-    private Ray m_VerticalRay;
-    private GameObject m_Object;
-    private bool m_Construction;
-    private bool m_Toggle = false;
+    private StructureData m_BuildingInfo;//í˜„ì¬ ì„ íƒí•œ ê±´ë¬¼ ì •ë³´
+    private Camera m_Camera;//ë©”ì¸ ì¹´ë©”ë¼
+    private Ray m_HorizontalRay;//ìˆ˜í‰ ë ˆì´
+    private Ray m_VerticalRay;//ìˆ˜ì§ ë ˆì´
+    private GameObject m_BluePrint;//ì²­ì‚¬ì§„ í”„ë¦¬í©
+    private bool m_Construction;//ê±´ì„¤ ëª¨ë“œ bool
+    private bool m_Toggle = false;//Ui On, off ì²´í¬
     private float m_rotate = 0.0f;
 
     private void Awake()
     {
-        instance = this;
+        instance = this;//ì‹±ê¸€í†¤
     }
 
     private void Start()
     {
-        m_Camera = Camera.main;//¸ŞÀÎ Ä«¸Ş¶ó °¡Á®¿À±â
+        m_Camera = Camera.main;//ë©”ì¸ ì¹´ë©”ë¼ ê°€ì ¸ì˜¤ê¸°
         m_Construction = false;
 
-        HideUi();//¹öÆ°À» ´©¸£±â Àü±îÁø Ui °¡¸®±â
+        HideUi();//ë²„íŠ¼ì„ ëˆ„ë¥´ê¸° ì „ê¹Œì§„ Ui ê°€ë¦¬ê¸°
     }
 
     private void Update()
     {
-        if (Input.GetKeyUp(m_BuildButton)) //¹öÆ° B¸¦ ´­·¶À» ¶§,
+        if (Input.GetKeyUp(m_BuildButton)) //ë²„íŠ¼ Bë¥¼ ëˆŒë €ì„ ë•Œ,
         {
-            m_Construction = false;//º¯¼ö ÃÊ±âÈ­
+            m_Construction = false;//ë³€ìˆ˜ ì´ˆê¸°í™”
 
-            if (m_Object != null)//¾ÆÁ÷ °Ç¼³ÁßÀÌ¿´À» °æ¿ì °Ç¼³ÇÏ·Á´Â ¿ÀºêÁ§Æ® ÆÄ±«
+            if (m_BluePrint != null)//ì•„ì§ ê±´ì„¤ì¤‘ì´ì˜€ì„ ê²½ìš° ê±´ì„¤í•˜ë ¤ëŠ” ì˜¤ë¸Œì íŠ¸ íŒŒê´´
             {
-                Destroy(m_Object);
+                Destroy(m_BluePrint);
             }
 
-            m_Object = null;
-            ToggleUi();//UI ¿Â¿ÀÇÁ
+            m_BluePrint = null;
+            ToggleUi();//UI ì˜¨ì˜¤í”„
         }
 
-        if (m_Construction)//°Ç¼³ ¸ğµåÀÏ °æ¿ì
+        if (m_Construction)//ê±´ì„¤ ëª¨ë“œì¼ ê²½ìš°
         {
             m_rotate += Input.mouseScrollDelta.y * 10.0f;
 
-            if (m_Object == null)
+            if (m_BluePrint == null)
             {
-                m_Object = Instantiate(m_BuildingInfo.m_Prefab);//°ÇÃà¹° »ı¼º
-
+                m_BluePrint = Instantiate(m_BuildingInfo.m_Prefab_B);//ê±´ì¶•ë¬¼ ì²­ì‚¬ì§„ ìƒì„±
             }
             else
             {
-                m_Object.transform.Rotate(0, m_rotate, 0);//ÈÙ µ¹¸° ¹æÇâÀ¸·Î È¸Àü
+                m_BluePrint.transform.Rotate(0, m_rotate, 0);//íœ  ëŒë¦° ë°©í–¥ìœ¼ë¡œ íšŒì „
                 m_rotate = 0.0f;
-                m_HorizontalRay = m_Camera.ScreenPointToRay(Input.mousePosition);//Ä«¸Ş¶ó ±âÁØ ¾ÕÀ¸·Î ¼öÆò ·¹ÀÌ »ı¼º
-                m_VerticalRay = new Ray(m_HorizontalRay.origin + m_HorizontalRay.direction * 5, new Vector3(0, -1, 0));//¼öÆò ·¹ÀÌ ³¡ ºÎºĞ¿¡¼­ ¼öÁ÷ ·¹ÀÌ »ı¼º 
+                m_HorizontalRay = m_Camera.ScreenPointToRay(Input.mousePosition);//ì¹´ë©”ë¼ ê¸°ì¤€ ì •ë©´ìœ¼ë¡œ ë ˆì´ ìƒì„±
+                m_VerticalRay = new Ray(m_HorizontalRay.origin + m_HorizontalRay.direction * 5, new Vector3(0, -1, 0));//ì •ë©´ ë ˆì´ ë ë¶€ë¶„ì—ì„œ ìˆ˜ì§ ë ˆì´ ìƒì„± 
 
                 RaycastHit hit;
 
-                if (Physics.Raycast(m_VerticalRay, out hit, 10.0f))//·¹ÀÌ¿Í Ãæµ¹ÇÑ ¿ÀºêÁ§Æ®¿¡ Á¢±Ù
+                if(Physics.Raycast(m_HorizontalRay, out hit, 3.0f))
                 {
-                    if (hit.transform.tag == "Structure" || hit.transform.tag == "Terrain")//ÁöÇüÀÌ³ª °Ç¹°ÀÏ °æ¿ì
+                    if(hit.transform.gameObject.name == "Wall")
                     {
-                        m_Object.transform.position = m_VerticalRay.origin + new Vector3(0, -hit.distance, 0);//Ãæµ¹ÇÑ À§Ä¡¿¡ ¿ÀºêÁ§Æ® ÀÌµ¿
+                        Debug.Log("This is Wall");
+                    }
+                }
+
+                if (Physics.Raycast(m_VerticalRay, out hit, 10.0f))//ë ˆì´ì™€ ì¶©ëŒí•œ ì˜¤ë¸Œì íŠ¸ì— ì ‘ê·¼
+                {
+                    if (hit.transform.tag == "Structure" || hit.transform.tag == "Terrain")//ì§€í˜•ì´ë‚˜ ê±´ë¬¼ì¼ ê²½ìš°
+                    {
+                        m_BluePrint.transform.position = m_VerticalRay.origin + new Vector3(0, -hit.distance, 0);//ì¶©ëŒí•œ ìœ„ì¹˜ì— ì˜¤ë¸Œì íŠ¸ ì´ë™
                     }
                 }
             }
 
-            if (Input.GetMouseButtonDown(0))//Å¬¸¯ ¹öÆ°À» ´­·¶À» °æ¿ì
+            if (Input.GetMouseButtonDown(0))//í´ë¦­ ë²„íŠ¼ì„ ëˆŒë €ì„ ê²½ìš°
             {
-                //ÇØ´ç À§Ä¡¿¡ °ÇÃà¹°À» °íÁ¤½ÃÅ´
-                m_Object.transform.tag = "Structure";//±¸Á¶¹° ÅÂ±×·Î º¯°æ
-                m_Construction = false;//°Ç¼³¸ğµå ÇØÁ¦
-                m_Object = null;
+                //í•´ë‹¹ ìœ„ì¹˜ì— ê±´ì¶•ë¬¼ì„ ê³ ì •ì‹œí‚´
+                GameObject temp = Instantiate(m_BuildingInfo.m_Prefab);//ì‹¤ì œ ê±´ì¶•ë¬¼ í”„ë¦¬í© ìƒì„±
+                temp.transform.position = m_BluePrint.transform.position;//ì²­ì‚¬ì§„ ìœ„ì¹˜ì™€ íšŒì „ê°’ìœ¼ë¡œ ë®ì–´ì“°ê¸°
+                temp.transform.rotation = m_BluePrint.transform.rotation;
+                temp.transform.tag = "Structure";//êµ¬ì¡°ë¬¼ íƒœê·¸ë¡œ ë³€ê²½
+                m_Construction = false;//ê±´ì„¤ëª¨ë“œ í•´ì œ
+                Destroy(m_BluePrint);//ì²­ì‚¬ì§„ ì˜¤ë¸Œì íŠ¸ ì‚­ì œ
+                m_BluePrint = null;
             }
-
-
         }
     }
 
-    public void ToggleUi()//Ui »óÅÂ¸¦ ÀüÈ¯ÇÏ´Â ÇÔ¼ö
+    public void ToggleUi()//Ui ìƒíƒœë¥¼ ì „í™˜í•˜ëŠ” í•¨ìˆ˜
     {
         if (!m_Toggle)
         {
-            Cursor.lockState = CursorLockMode.None;//Ä¿¼­ °íÁ¤ ÇØÁ¦
+            Cursor.lockState = CursorLockMode.None;//ì»¤ì„œ ê³ ì • í•´ì œ
             PlayerController.instance.canLook = false;
             ShowUi();
 
-            m_Toggle = !m_Toggle;//Åä±Û ¹İ´ë·Î ÀüÈ¯
+            m_Toggle = !m_Toggle;//í† ê¸€ ë°˜ëŒ€ë¡œ ì „í™˜
         }
         else
         {
-            Cursor.lockState = CursorLockMode.Locked;//Ä¿¼­ °íÁ¤
+            Cursor.lockState = CursorLockMode.Locked;//ì»¤ì„œ ê³ ì •
             PlayerController.instance.canLook = true;
             HideUi();
 
-            m_Toggle = !m_Toggle;//Åä±Û ¹İ´ë·Î ÀüÈ¯
+            m_Toggle = !m_Toggle;//í† ê¸€ ë°˜ëŒ€ë¡œ ì „í™˜
         }
     }
 
-    public void SelectBuilding(ref StructureData info)//½ºÅ©·Ñ ºä¿¡¼­ °Ç¹° ¹öÆ°À» ´©¸£¸é È£Ãâ
+    public void SelectBuilding(ref StructureData info)//ìŠ¤í¬ë¡¤ ë·°ì—ì„œ ê±´ë¬¼ ë²„íŠ¼ì„ ëˆ„ë¥´ë©´ í˜¸ì¶œ
     {
-        this.m_BuildingInfo = info;//°Ç¹° Á¤º¸¸¦ °¡Á®¿Â´Ù.
+        this.m_BuildingInfo = info;//ê±´ë¬¼ ì •ë³´ë¥¼ ê°€ì ¸ì˜¨ë‹¤.
 
-        UpdateDesc();//ÀÌ¸§°ú ¼³¸í, ¾ÆÀÌÄÜÀ» °¡Á®¿Â °Ç¹° Á¤º¸·Î ¾÷µ¥ÀÌÆ®
+        UpdateDesc();//ì´ë¦„ê³¼ ì„¤ëª…, ì•„ì´ì½˜ì„ ê°€ì ¸ì˜¨ ê±´ë¬¼ ì •ë³´ë¡œ ì—…ë°ì´íŠ¸
     }
 
     public void ConstructionMode()
     {
-        m_Construction = true;//°Ç¼³ ¸ğµå¸¦ Å°°í UI ¼û±â±â
-        ToggleUi();
+        if(m_BuildingInfo != null)//ì„ íƒí•œ ê±´ì¶•ë¬¼ì´ ì—†ì„ ë•ŒëŠ” ë¹„í™œì„±í™”
+        {
+            m_Construction = true;//ê±´ì„¤ ëª¨ë“œë¥¼ í‚¤ê³  UI ìˆ¨ê¸°ê¸°
+            ToggleUi();
+        }
     }
 
-    private void UpdateDesc()//°¡Á®¿Â °Ç¹° Á¤º¸¿¡ ¸ÂÃç¼­ ¿¹½Ã ÀÌ¹ÌÁö¿Í ÀÌ¸§, ¼³¸íÀ» Ãâ·Â
+    public bool RecipeCheck()
+    {
+        foreach(StructureRecipe item in m_BuildingInfo.items)
+        {
+            bool result;
+            result = Inventory.instance.HasItems(item.index, item.count);//ì¶©ë¶„í•œ ì•„ì´í…œì´ ìˆì„ ê²½ìš°, ì°¸
+
+            if(!result)
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    private void UpdateDesc()//ê°€ì ¸ì˜¨ ê±´ë¬¼ ì •ë³´ì— ë§ì¶°ì„œ ì˜ˆì‹œ ì´ë¯¸ì§€ì™€ ì´ë¦„, ì„¤ëª…ì„ ì¶œë ¥
     {
         m_NameText.GetComponent<TextMeshProUGUI>().text = m_BuildingInfo.m_StructureName;
         m_DescText.GetComponent<TextMeshProUGUI>().text = m_BuildingInfo.m_Desc;
@@ -131,12 +161,12 @@ public class BuildingManager : MonoBehaviour
 
     }
 
-    private void ShowUi()//UIÃ¢ º¸ÀÌ±â
+    private void ShowUi()//UIì°½ ë³´ì´ê¸°
     {
         gameObject.transform.localScale = new Vector3(1, 1, 1);
     }
 
-    private void HideUi()//UIÃ¢ ¼û±â±â
+    private void HideUi()//UIì°½ ìˆ¨ê¸°ê¸°
     {
         gameObject.transform.localScale = Vector3.zero;
     }

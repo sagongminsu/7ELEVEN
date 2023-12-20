@@ -1,11 +1,11 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public class CampfireTrigger : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
 
-        if (other.gameObject.tag == "Player")//Ãæµ¹Ã¼°¡ ÇÃ·¹ÀÌ¾îÀÏ °æ¿ì
+        if (other.gameObject.tag == "Player")//ì¶©ëŒì²´ê°€ í”Œë ˆì´ì–´ì¼ ê²½ìš°
         {
             PlayerController.instance.isInCookArea = true;
         }
@@ -14,7 +14,7 @@ public class CampfireTrigger : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
 
-        if (other.gameObject.tag == "Player")//Ãæµ¹Ã¼°¡ ÇÃ·¹ÀÌ¾îÀÏ °æ¿ì
+        if (other.gameObject.tag == "Player")//ì¶©ëŒì²´ê°€ í”Œë ˆì´ì–´ì¼ ê²½ìš°
         {
             PlayerController.instance.isInCookArea = false;
         }

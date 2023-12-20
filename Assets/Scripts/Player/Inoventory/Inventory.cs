@@ -1,11 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Reflection;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
-using static UnityEditor.Progress;
 
 public class ItemSlot
 {
@@ -172,10 +168,17 @@ public class Inventory : MonoBehaviour
         selectedItemStatNames.text = string.Empty;
         selectedItemStatValues.text = string.Empty;
 
-        for (int i = 0; i < selectedItem.item.consumables.Length; i++)
+        if (selectedItem.item.itemType != ItemType.Equipment)
         {
-            selectedItemStatNames.text += selectedItem.item.consumables[i].type.ToString() + "\n";
-            selectedItemStatValues.text += selectedItem.item.consumables[i].value.ToString() + "\n";
+            for (int i = 0; i < selectedItem.item.consumables.Length; i++)
+            {
+                selectedItemStatNames.text += selectedItem.item.consumables[i].type.ToString() + "\n";
+                selectedItemStatValues.text += selectedItem.item.consumables[i].value.ToString() + "\n";
+            }
+        }
+        else
+        {
+            selectedItemStatValues.text += selectedItem.item.point.ToString() + "\n";
         }
 
         useButton.SetActive(selectedItem.item.itemType == ItemType.Food || selectedItem.item.itemType == ItemType.Medicines);
@@ -253,7 +256,7 @@ public class Inventory : MonoBehaviour
         EquipManager.instance.UnEquip();
         UpdateUI();
 
-        if(selectedItemIndex == index)
+        if (selectedItemIndex == index)
         {
             SelectItem(index);
         }
@@ -332,6 +335,22 @@ public class Inventory : MonoBehaviour
                 return true;
             }
         }
+        return false;
+    }
+
+    public bool HasItems(int index, int quantity)//아이템 코드로 아이템을 갖고 있는지 체크하는 함수
+    {
+        foreach (ItemSlot slot in slots)
+        {
+            if (slot.item != null)
+            {
+                if (slot.item.index == index && slot.item.count >= quantity)//필요한 개수와 아이템 코드가 충족될 경우 참 리턴
+                {
+                    return true;
+                }
+            }
+        }
+
         return false;
     }
 }

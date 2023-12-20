@@ -33,7 +33,7 @@ Transform:
   m_Children:
   - {fileID: 8616005019013945590}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!195 &9014729039463107586
 NavMeshAgent:
@@ -93,7 +93,8 @@ MonoBehaviour:
   health: 6
   walkSpeed: 1
   runSpeed: 4
-  detectDistance: 5
+  dropOnDeath: {fileID: 5984911598340929997, guid: 5228c984e5be7284d8d83c18096254dd, type: 3}
+  detectDistance: 1
   safeDistance: 8
   minWanderDistance: 5
   maxWanderDistance: 10
@@ -163,6 +164,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: a6a7b9db0b38365458d85d83ff4a60d6, type: 2}
+    - target: {fileID: 5487591289728943739, guid: b91f2cacb0bef7f4bac8f61b0f00b4c6, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

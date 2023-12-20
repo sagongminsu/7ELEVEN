@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db0df947a4a2505419c9fe4be54da5da, type: 3}
+  m_Name: Tent
+  m_EditorClassIdentifier: 
+  m_StructureName: Tent
+  m_Desc: This is Tent
+  m_Icon: {fileID: 21300000, guid: 60ad8687b240ec14db889b739e542cb1, type: 3}
+  m_Prefab: {fileID: 3918036935182654285, guid: b5991b8efe7e0044888b9058f6d3119f, type: 3}
+  m_Prefab_B: {fileID: 3918036935182654285, guid: 9e7c3ef9e4d9f264ba57ea607c3efb0c, type: 3}
+  items: []

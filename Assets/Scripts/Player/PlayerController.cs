@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
     public bool isInCookArea = false;
     public bool isInBlacksmithArea = false;
 
-
+    bool playerMove = false;
     private Rigidbody _rigidbody;
 
     public static PlayerController instance;
@@ -41,9 +41,21 @@ public class PlayerController : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
     }
 
+
     private void FixedUpdate()
     {
         Move();
+        if (curMovementInput != Vector2.zero)
+        {
+            playerMove = true;
+            SoundManager.Instance.StartPlayNextClip(SoundManager.Instance.moveAudioSource, SoundManager.Instance.mopveAudioClip, playerMove);
+        }
+        else
+        {
+            playerMove = false;
+            SoundManager.Instance.StartPlayNextClip(SoundManager.Instance.moveAudioSource, SoundManager.Instance.mopveAudioClip, playerMove);
+        }
+
     }
 
     private void LateUpdate()
@@ -138,4 +150,6 @@ public class PlayerController : MonoBehaviour
         Cursor.lockState = toggle ? CursorLockMode.None : CursorLockMode.Locked;
         canLook = !toggle;
     }
+
+
 }

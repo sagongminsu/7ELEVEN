@@ -93,6 +93,7 @@ MonoBehaviour:
   health: 6
   walkSpeed: 1
   runSpeed: 4
+  dropOnDeath: []
   detectDistance: 5
   safeDistance: 8
   minWanderDistance: 5

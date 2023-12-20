@@ -43,7 +43,6 @@ public class PlayerConditions : MonoBehaviour, IDamageable
     public Condition health;
     public Condition hunger;
     public Condition stamina;
-    public Condition thirst;
 
     public GameObject dieUI;
 
@@ -63,14 +62,12 @@ public class PlayerConditions : MonoBehaviour, IDamageable
         health.curValue = health.startValue;
         hunger.curValue = hunger.startValue;
         stamina.curValue = stamina.startValue;
-        thirst.curValue = thirst.startValue;
     }
 
     // Update is called once per frame
     void Update()
     {
         hunger.Subtract(hunger.decayRate * Time.deltaTime);
-        thirst.Subtract(thirst.decayRate * Time.deltaTime);
 
         stamina.Add(stamina.regenRate * Time.deltaTime);
 
@@ -97,11 +94,6 @@ public class PlayerConditions : MonoBehaviour, IDamageable
     public void Eat(float amount)
     {
         hunger.Add(amount);
-    }
-
-    public void Drink(float amount)
-    {
-        thirst.Add(amount);
     }
 
     public bool UseStamina(float amount)

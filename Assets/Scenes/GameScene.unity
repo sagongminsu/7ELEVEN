@@ -14512,7 +14512,7 @@ MonoBehaviour:
     maxValue: 500
     startValue: 400
     regenRate: 0
-    decayRate: 5
+    decayRate: 1
     uiBar: {fileID: 120959202}
   stamina:
     curValue: 0
@@ -14526,7 +14526,7 @@ MonoBehaviour:
     maxValue: 500
     startValue: 200
     regenRate: 0
-    decayRate: 50
+    decayRate: 1
     uiBar: {fileID: 606877456}
   noHungerHealthDecay: 2
   onTakeDamage:

@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db0df947a4a2505419c9fe4be54da5da, type: 3}
+  m_Name: WoodenFence
+  m_EditorClassIdentifier: 
+  m_StructureName: WoodenFence
+  m_Desc: This is Fence
+  m_Icon: {fileID: 21300000, guid: d519403bda9fbc842b61315c7c04612c, type: 3}
+  m_Prefab: {fileID: 1025681519537117646, guid: aa99a810914c5b84b9bc5d51f95dd05c, type: 3}
+  m_Prefab_B: {fileID: 1025681519537117646, guid: dc00b8d093ee1cd4582332c742bdcf79, type: 3}
+  items: []

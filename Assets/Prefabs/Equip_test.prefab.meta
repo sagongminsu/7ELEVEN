@@ -1,6 +1,11 @@
 fileFormatVersion: 2
-guid: a24a213aa300d6b42b1612df4c42a7f5
+<<<<<<<< HEAD:Assets/Prefabs/Equip_test.prefab.meta
+guid: 533c51b3112ce7a4185946b47bcec547
 PrefabImporter:
+========
+guid: 25d8b3d8d1bd5e745b6d24747a8c75e9
+DefaultImporter:
+>>>>>>>> map_Cheolhee:Assets/Scenes/GameScene 1.unity.meta
   externalObjects: {}
   userData: 
   assetBundleName: 

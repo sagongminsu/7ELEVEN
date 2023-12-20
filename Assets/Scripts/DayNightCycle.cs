@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DayNightCycle : MonoBehaviour
 {
-    [Range(0.0f, 1.0f)]
+    [Range(0.0f, 5.0f)]
     public float time;
     public float fullDayLength;
     public float startTime = 0.3f;
@@ -33,7 +33,7 @@ public class DayNightCycle : MonoBehaviour
 
     private void Update()
     {
-        time = (time + timeRate * Time.deltaTime) % 1.0f;
+        time = (time + timeRate * Time.deltaTime) % 5.0f;
 
         UpdateLighting(sun, sunColor, sunIntensity);
         UpdateLighting(moon, moonColor, moonIntensity);

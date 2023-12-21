@@ -94,7 +94,7 @@ MonoBehaviour:
   walkSpeed: 1
   runSpeed: 4
   dropOnDeath: {fileID: 5984911598340929997, guid: 5228c984e5be7284d8d83c18096254dd, type: 3}
-  detectDistance: 1
+  detectDistance: 2
   safeDistance: 8
   minWanderDistance: 5
   maxWanderDistance: 10

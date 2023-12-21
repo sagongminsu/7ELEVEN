@@ -74,7 +74,7 @@ MonoBehaviour:
   doesGatherResources: 1
   resourceMask:
     serializedVersion: 2
-    m_Bits: 2048
+    m_Bits: 6144
   doesDealDamage: 1
   damage: 2
 --- !u!114 &8160775525817548872

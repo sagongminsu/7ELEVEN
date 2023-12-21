@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3389460}
   - component: {fileID: 2309218}
   - component: {fileID: 8124152180804906257}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Wall_Narrow_01_a
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 3332560}
   - component: {fileID: 2305752}
   - component: {fileID: 1738030355023613175}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Roof_01_a
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -224,7 +224,7 @@ GameObject:
   - component: {fileID: 3365974}
   - component: {fileID: 2385258}
   - component: {fileID: 3804274878357326611}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Wall_Wide_01_a
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -330,7 +330,7 @@ GameObject:
   - component: {fileID: 3315572}
   - component: {fileID: 2369578}
   - component: {fileID: 3236766176964426781}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Wall_Narrow_02_a
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -434,7 +434,7 @@ GameObject:
   m_Component:
   - component: {fileID: 415204}
   - component: {fileID: 948482113987441741}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: WoodenHouse
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -494,7 +494,7 @@ GameObject:
   - component: {fileID: 476808}
   - component: {fileID: 3371292}
   - component: {fileID: 2369466}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Floor_01_a
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -578,7 +578,7 @@ GameObject:
   - component: {fileID: 3364588}
   - component: {fileID: 2365980}
   - component: {fileID: 7896559025303334485}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Wall_Wide_02_a
   m_TagString: Untagged
   m_Icon: {fileID: 0}

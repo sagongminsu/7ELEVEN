@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3303454}
   - component: {fileID: 2334558}
   - component: {fileID: 8213548628210232091}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Floor_01_c (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 3354816}
   - component: {fileID: 2307442}
   - component: {fileID: 3037783073891430453}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Wall_Narrow_01_c
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -224,7 +224,7 @@ GameObject:
   - component: {fileID: 3385996}
   - component: {fileID: 2308114}
   - component: {fileID: 3749053702704811109}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Wall_Wide_01_c
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -328,7 +328,7 @@ GameObject:
   m_Component:
   - component: {fileID: 401218}
   - component: {fileID: 2071430756345649731}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: StoneHouse
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -389,7 +389,7 @@ GameObject:
   - component: {fileID: 3352184}
   - component: {fileID: 2340030}
   - component: {fileID: 2133666582472910432}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Wall_Wide_02_c
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -495,7 +495,7 @@ GameObject:
   - component: {fileID: 3347172}
   - component: {fileID: 2364840}
   - component: {fileID: 7338360392536058644}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Wall_Narrow_02_c
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -600,7 +600,7 @@ GameObject:
   - component: {fileID: 494880}
   - component: {fileID: 3390718}
   - component: {fileID: 2322366}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Floor_01_c
   m_TagString: Untagged
   m_Icon: {fileID: 0}

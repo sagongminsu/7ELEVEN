@@ -183,10 +183,13 @@ public class Inventory : MonoBehaviour
 
         if (selectedItem.item.itemType != ItemType.Equipment)
         {
-            for (int i = 0; i < selectedItem.item.consumables.Length; i++)
+            if(selectedItem.item.itemType != ItemType.Resource)
             {
-                selectedItemStatNames.text += selectedItem.item.consumables[i].type.ToString() + "\n";
-                selectedItemStatValues.text += selectedItem.item.consumables[i].value.ToString() + "\n";
+                for (int i = 0; i < selectedItem.item.consumables.Length; i++)
+                {
+                    selectedItemStatNames.text += selectedItem.item.consumables[i].type.ToString() + "\n";
+                    selectedItemStatValues.text += selectedItem.item.consumables[i].value.ToString() + "\n";
+                }
             }
         }
         else

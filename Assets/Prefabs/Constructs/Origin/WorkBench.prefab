@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9012830677334553404}
   - component: {fileID: 6553008995678029814}
   - component: {fileID: 8523391424481830863}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: WorkBench
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 5799907637813753125}
   - component: {fileID: 2692079981129042662}
   - component: {fileID: 1910036660117948497}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}

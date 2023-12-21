@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7144317687751402127}
   - component: {fileID: 7775489087426693761}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Ceiling
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -65,7 +65,7 @@ GameObject:
   - component: {fileID: 5719026278466168201}
   - component: {fileID: 2233836173125983254}
   - component: {fileID: 1080101095973797397}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}

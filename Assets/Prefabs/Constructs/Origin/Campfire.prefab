@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 355692254246176441}
   - component: {fileID: 1228111005269755879}
   - component: {fileID: 3183480922775757434}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4914,7 +4914,7 @@ GameObject:
   - component: {fileID: 3847954837768246505}
   - component: {fileID: 2873387077909411349}
   - component: {fileID: 2268386609066501380}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: DamageTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4950,7 +4950,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 10
   damageRate: 0.5
-  time: 0
 --- !u!136 &2268386609066501380
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -4985,7 +4984,7 @@ GameObject:
   - component: {fileID: 1683458962669161567}
   - component: {fileID: 3366888479466039164}
   - component: {fileID: 8322204362339655762}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: StatusTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5052,7 +5051,7 @@ GameObject:
   - component: {fileID: 5294492299074033839}
   - component: {fileID: 7970570862598925413}
   - component: {fileID: 1012849989202360695}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Campfire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
